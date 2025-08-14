@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impara il Turco - App Completa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
-        .turkish-font { font-family: 'Noto Sans', sans-serif; }
         .main-font { font-family: 'Inter', sans-serif; }
         
         .lesson-card {
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
         }
         
         .lesson-card:hover {
@@ -21,13 +20,22 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
+        .lesson-card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .lesson-card.locked:hover {
+            transform: none;
+        }
+        
         .progress-bar {
-            background: linear-gradient(90deg, #4ade80, #22c55e);
+            background: linear-gradient(90deg, #dc2626, #b91c1c);
             transition: width 0.5s ease;
         }
         
         .exercise-card {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
             transition: all 0.3s ease;
         }
         
@@ -36,15 +44,15 @@
         }
         
         .grammar-card {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
         }
         
         .writing-practice {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
         }
         
         .audio-btn {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #fbbf24 100%);
             transition: all 0.3s ease;
         }
         
@@ -52,17 +60,12 @@
             transform: scale(1.1);
         }
         
-        .korean-char {
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
         .nav-tab {
             transition: all 0.3s ease;
         }
         
         .nav-tab.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
             color: white;
         }
         
@@ -78,7 +81,7 @@
         }
         
         .exercise-option:hover {
-            background-color: #e0e7ff;
+            background-color: #fef3c7;
             transform: translateX(5px);
         }
         
@@ -93,25 +96,25 @@
         }
     </style>
 </head>
-<body class="main-font bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 min-h-screen">
+<body class="main-font bg-gradient-to-br from-red-50 via-pink-50 to-orange-50 min-h-screen">
     <!-- Header -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold text-lg turkish-font">TR</span>
+                    <div class="w-10 h-10 bg-gradient-to-r from-red-600 to-orange-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">🇹🇷</span>
                     </div>
                     <h1 class="text-2xl font-bold text-gray-800">Impara il Turco</h1>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <div class="bg-green-100 px-4 py-2 rounded-full">
-                        <span class="text-green-800 font-semibold">Livello: Principiante</span>
+                    <div class="bg-red-100 px-4 py-2 rounded-full">
+                        <span class="text-red-800 font-semibold">Livello: Principiante</span>
                     </div>
                     <div class="w-32 bg-gray-200 rounded-full h-2">
-                        <div class="progress-bar h-2 rounded-full" style="width: 35%"></div>
+                        <div class="progress-bar h-2 rounded-full" style="width: 0%"></div>
                     </div>
-                    <span class="text-sm text-gray-600">35% completato</span>
+                    <span class="text-sm text-gray-600 progress-text">0% completato</span>
                 </div>
             </div>
         </div>
@@ -129,9 +132,6 @@
                 </button>
                 <button class="nav-tab px-6 py-2 rounded-full font-medium whitespace-nowrap" onclick="showSection('grammar')">
                     📖 Grammatica
-                </button>
-                <button class="nav-tab px-6 py-2 rounded-full font-medium whitespace-nowrap" onclick="showSection('writing')">
-                    ✍️ Scrittura
                 </button>
                 <button class="nav-tab px-6 py-2 rounded-full font-medium whitespace-nowrap" onclick="showSection('vocabulary')">
                     📝 Vocabolario
@@ -158,81 +158,139 @@
                 <div class="lesson-card rounded-xl p-6 text-white cursor-pointer" onclick="openLesson(1)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 1</h3>
-                        <span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-sm">Completata ✓</span>
+                        <span class="lesson-status bg-green-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">Disponibile</span>
                     </div>
                     <h4 class="text-lg font-semibold mb-2">Alfabeto Turco</h4>
-                    <p class="text-sm opacity-90 mb-4">Impara le lettere e i suoni dell'alfabeto turco</p>
+                    <p class="text-sm opacity-90 mb-4">Le lettere e i suoni del turco</p>
                     <div class="flex justify-between items-center">
-                        <span class="turkish-font text-2xl">A Ç Ğ İ Ö Ş Ü</span>
-                        <span class="text-sm">25 min</span>
-                    </div>
-                </div>
-
-                <!-- Lesson 2 -->
-                <div class="lesson-card rounded-xl p-6 text-white cursor-pointer" onclick="openLesson(2)">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold">Lezione 2</h3>
-                        <span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-sm">In corso</span>
-                    </div>
-                    <h4 class="text-lg font-semibold mb-2">Saluti e Presentazioni</h4>
-                    <p class="text-sm opacity-90 mb-4">Come salutare e presentarsi in turco</p>
-                    <div class="flex justify-between items-center">
-                        <span class="turkish-font text-2xl">Merhaba</span>
-                        <span class="text-sm">20 min</span>
-                    </div>
-                </div>
-
-                <!-- Lesson 3 -->
-                <div class="lesson-card rounded-xl p-6 text-white cursor-pointer" onclick="openLesson(3)">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold">Lezione 3</h3>
-                        <span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-sm">Bloccata</span>
-                    </div>
-                    <h4 class="text-lg font-semibold mb-2">Numeri e Conteggio</h4>
-                    <p class="text-sm opacity-90 mb-4">Numeri turchi e come contare</p>
-                    <div class="flex justify-between items-center">
-                        <span class="turkish-font text-2xl">bir iki üç</span>
+                        <span class="text-2xl">A B C Ç D E</span>
                         <span class="text-sm">30 min</span>
                     </div>
                 </div>
 
-                <!-- More lessons -->
-                <div class="lesson-card rounded-xl p-6 text-white cursor-pointer" onclick="openLesson(4)">
+                <!-- Lesson 2 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(2)">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold">Lezione 4</h3>
-                        <span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-sm">Bloccata</span>
+                        <h3 class="text-xl font-bold">Lezione 2</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
                     </div>
-                    <h4 class="text-lg font-semibold mb-2">Famiglia e Relazioni</h4>
-                    <p class="text-sm opacity-90 mb-4">Vocabolario per descrivere la famiglia</p>
+                    <h4 class="text-lg font-semibold mb-2">Saluti Turchi</h4>
+                    <p class="text-sm opacity-90 mb-4">Come salutare in turco</p>
                     <div class="flex justify-between items-center">
-                        <span class="turkish-font text-2xl">aile</span>
+                        <span class="text-2xl">Merhaba</span>
+                        <span class="text-sm">25 min</span>
+                    </div>
+                </div>
+
+                <!-- Lesson 3 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(3)">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold">Lezione 3</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Numeri Turchi</h4>
+                    <p class="text-sm opacity-90 mb-4">Contare dall'1 al 100</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl">Bir İki Üç</span>
                         <span class="text-sm">35 min</span>
                     </div>
                 </div>
 
-                <div class="lesson-card rounded-xl p-6 text-white cursor-pointer" onclick="openLesson(5)">
+                <!-- Lesson 4 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(4)">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold">Lezione 5</h3>
-                        <span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-sm">Bloccata</span>
+                        <h3 class="text-xl font-bold">Lezione 4</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
                     </div>
-                    <h4 class="text-lg font-semibold mb-2">Cibo e Ristoranti</h4>
-                    <p class="text-sm opacity-90 mb-4">Ordinare cibo e parlare di cucina turca</p>
+                    <h4 class="text-lg font-semibold mb-2">Famiglia Turca</h4>
+                    <p class="text-sm opacity-90 mb-4">Vocabolario della famiglia</p>
                     <div class="flex justify-between items-center">
-                        <span class="turkish-font text-2xl">yemek</span>
+                        <span class="text-2xl">Aile</span>
                         <span class="text-sm">40 min</span>
                     </div>
                 </div>
 
-                <div class="lesson-card rounded-xl p-6 text-white cursor-pointer" onclick="openLesson(6)">
+                <!-- Lesson 5 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(5)">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold">Lezione 5</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Cibo Turco</h4>
+                    <p class="text-sm opacity-90 mb-4">Piatti e cucina turca</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl">Yemek</span>
+                        <span class="text-sm">35 min</span>
+                    </div>
+                </div>
+
+                <!-- Lesson 6 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(6)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 6</h3>
-                        <span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-sm">Bloccata</span>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
                     </div>
-                    <h4 class="text-lg font-semibold mb-2">Tempo e Date</h4>
-                    <p class="text-sm opacity-90 mb-4">Esprimere tempo, ore e date</p>
+                    <h4 class="text-lg font-semibold mb-2">Colori in Turco</h4>
+                    <p class="text-sm opacity-90 mb-4">I colori principali</p>
                     <div class="flex justify-between items-center">
-                        <span class="turkish-font text-2xl">zaman</span>
-                        <span class="text-sm">25 min</span>
+                        <span class="text-2xl">Renkler</span>
+                        <span class="text-sm">30 min</span>
+                    </div>
+                </div>
+
+                <!-- Lesson 7 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(7)">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold">Lezione 7</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Tempo in Turco</h4>
+                    <p class="text-sm opacity-90 mb-4">Espressioni temporali</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl">Zaman</span>
+                        <span class="text-sm">40 min</span>
+                    </div>
+                </div>
+
+                <!-- Lesson 8 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(8)">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold">Lezione 8</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Shopping in Turco</h4>
+                    <p class="text-sm opacity-90 mb-4">Fare acquisti in Turchia</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl">Alışveriş</span>
+                        <span class="text-sm">35 min</span>
+                    </div>
+                </div>
+
+                <!-- Lesson 9 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(9)">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold">Lezione 9</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Trasporti Turchi</h4>
+                    <p class="text-sm opacity-90 mb-4">Muoversi in Turchia</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl">Ulaşım</span>
+                        <span class="text-sm">40 min</span>
+                    </div>
+                </div>
+
+                <!-- Lesson 10 -->
+                <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(10)">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold">Lezione 10</h3>
+                        <span class="lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white">🔒 Bloccata</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Cultura Turca</h4>
+                    <p class="text-sm opacity-90 mb-4">Tradizioni e cultura</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl">Kültür</span>
+                        <span class="text-sm">45 min</span>
                     </div>
                 </div>
             </div>
@@ -248,20 +306,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="exercise-card rounded-xl p-6 text-white cursor-pointer" onclick="startExercise('alphabet')">
                     <h3 class="text-xl font-bold mb-2">Quiz Alfabeto</h3>
-                    <p class="text-sm opacity-90 mb-4">Riconosci le lettere dell'alfabeto turco</p>
-                    <div class="text-4xl">Ğ</div>
+                    <p class="text-sm opacity-90 mb-4">Riconosci le lettere turche</p>
+                    <div class="text-4xl">Ç</div>
                 </div>
                 
                 <div class="exercise-card rounded-xl p-6 text-white cursor-pointer" onclick="startExercise('vocabulary')">
                     <h3 class="text-xl font-bold mb-2">Vocabolario</h3>
                     <p class="text-sm opacity-90 mb-4">Abbina parole turche e italiane</p>
-                    <div class="text-4xl turkish-font">kelime</div>
+                    <div class="text-4xl">Kelime</div>
                 </div>
                 
-                <div class="exercise-card rounded-xl p-6 text-white cursor-pointer" onclick="startExercise('listening')">
-                    <h3 class="text-xl font-bold mb-2">Ascolto</h3>
-                    <p class="text-sm opacity-90 mb-4">Ascolta e scegli la risposta corretta</p>
-                    <div class="text-3xl">🎧</div>
+                <div class="exercise-card rounded-xl p-6 text-white cursor-pointer" onclick="startExercise('numbers')">
+                    <h3 class="text-xl font-bold mb-2">Numeri</h3>
+                    <p class="text-sm opacity-90 mb-4">Pratica i numeri turchi</p>
+                    <div class="text-4xl">Sayı</div>
                 </div>
             </div>
         </div>
@@ -275,73 +333,18 @@
             
             <div class="space-y-6">
                 <div class="grammar-card rounded-xl p-6 text-white">
-                    <h3 class="text-xl font-bold mb-4">Suffissi (Ekler)</h3>
+                    <h3 class="text-xl font-bold mb-4">Suffissi Turchi</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-white bg-opacity-20 rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">-ım/-im (Possessivo)</h4>
-                            <p class="text-sm turkish-font">evim</p>
-                            <p class="text-xs opacity-90">la mia casa</p>
+                            <h4 class="font-semibold mb-2">-lar/-ler - Plurale</h4>
+                            <p class="text-sm">ev → evler (casa → case)</p>
+                            <p class="text-sm">kitap → kitaplar (libro → libri)</p>
                         </div>
                         <div class="bg-white bg-opacity-20 rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">-de/-da (Locativo)</h4>
-                            <p class="text-sm turkish-font">evde</p>
-                            <p class="text-xs opacity-90">a casa / in casa</p>
+                            <h4 class="font-semibold mb-2">-da/-de - Locativo</h4>
+                            <p class="text-sm">evde (a casa)</p>
+                            <p class="text-sm">okulda (a scuola)</p>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="grammar-card rounded-xl p-6 text-white">
-                    <h3 class="text-xl font-bold mb-4">Armonia Vocalica</h3>
-                    <div class="space-y-3">
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">Vocali Anteriori (e, i, ö, ü)</h4>
-                            <p class="text-sm turkish-font">ev → evde</p>
-                            <p class="text-xs opacity-90">casa → a casa</p>
-                        </div>
-                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
-                            <h4 class="font-semibold mb-2">Vocali Posteriori (a, ı, o, u)</h4>
-                            <p class="text-sm turkish-font">okul → okulda</p>
-                            <p class="text-xs opacity-90">scuola → a scuola</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Writing Section -->
-        <div id="writing" class="section hidden">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Pratica di Scrittura</h2>
-                <p class="text-gray-600">Impara a scrivere le lettere turche</p>
-            </div>
-            
-            <div class="writing-practice rounded-xl p-6 text-white">
-                <h3 class="text-xl font-bold mb-4">Pratica Alfabeto Turco</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center cursor-pointer" onclick="practiceCharacter('Ç')">
-                        <div class="text-4xl text-white">Ç</div>
-                        <p class="text-sm">ch</p>
-                    </div>
-                    <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center cursor-pointer" onclick="practiceCharacter('Ğ')">
-                        <div class="text-4xl text-white">Ğ</div>
-                        <p class="text-sm">ğ (morbida)</p>
-                    </div>
-                    <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center cursor-pointer" onclick="practiceCharacter('İ')">
-                        <div class="text-4xl text-white">İ</div>
-                        <p class="text-sm">i (con punto)</p>
-                    </div>
-                    <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center cursor-pointer" onclick="practiceCharacter('Ş')">
-                        <div class="text-4xl text-white">Ş</div>
-                        <p class="text-sm">sh</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg p-6">
-                    <h4 class="text-gray-800 font-semibold mb-4">Area di Pratica</h4>
-                    <canvas id="writingCanvas" width="400" height="200" class="border-2 border-gray-300 rounded-lg cursor-crosshair"></canvas>
-                    <div class="mt-4 space-x-4">
-                        <button onclick="clearCanvas()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Cancella</button>
-                        <button onclick="checkWriting()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Verifica</button>
                     </div>
                 </div>
             </div>
@@ -360,17 +363,19 @@
                     <div class="space-y-3">
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <p class="turkish-font text-lg">Merhaba</p>
+                                <p class="text-lg font-semibold">Merhaba</p>
                                 <p class="text-sm text-gray-600">Ciao</p>
+                                <p class="text-xs text-blue-600">mer-ha-ba</p>
                             </div>
                             <button class="audio-btn w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" onclick="playAudio('merhaba')">🔊</button>
                         </div>
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <p class="turkish-font text-lg">Günaydın</p>
-                                <p class="text-sm text-gray-600">Buongiorno</p>
+                                <p class="text-lg font-semibold">Teşekkürler</p>
+                                <p class="text-sm text-gray-600">Grazie</p>
+                                <p class="text-xs text-blue-600">te-shek-kür-ler</p>
                             </div>
-                            <button class="audio-btn w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" onclick="playAudio('gunaydin')">🔊</button>
+                            <button class="audio-btn w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" onclick="playAudio('tesekkurler')">🔊</button>
                         </div>
                     </div>
                 </div>
@@ -380,15 +385,17 @@
                     <div class="space-y-3">
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <p class="turkish-font text-lg">Baba</p>
+                                <p class="text-lg font-semibold">Baba</p>
                                 <p class="text-sm text-gray-600">Padre</p>
+                                <p class="text-xs text-blue-600">ba-ba</p>
                             </div>
                             <button class="audio-btn w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" onclick="playAudio('baba')">🔊</button>
                         </div>
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <p class="turkish-font text-lg">Anne</p>
+                                <p class="text-lg font-semibold">Anne</p>
                                 <p class="text-sm text-gray-600">Madre</p>
+                                <p class="text-xs text-blue-600">an-ne</p>
                             </div>
                             <button class="audio-btn w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" onclick="playAudio('anne')">🔊</button>
                         </div>
@@ -400,15 +407,17 @@
                     <div class="space-y-3">
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <p class="turkish-font text-lg">Bir</p>
+                                <p class="text-lg font-semibold">Bir</p>
                                 <p class="text-sm text-gray-600">Uno</p>
+                                <p class="text-xs text-blue-600">bir</p>
                             </div>
                             <button class="audio-btn w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" onclick="playAudio('bir')">🔊</button>
                         </div>
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <p class="turkish-font text-lg">İki</p>
+                                <p class="text-lg font-semibold">İki</p>
                                 <p class="text-sm text-gray-600">Due</p>
+                                <p class="text-xs text-blue-600">i-ki</p>
                             </div>
                             <button class="audio-btn w-8 h-8 rounded-full flex items-center justify-center text-white text-sm" onclick="playAudio('iki')">🔊</button>
                         </div>
@@ -428,26 +437,26 @@
                 <div class="bg-white rounded-xl p-6 shadow-lg">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Lezioni Completate</h3>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-purple-600 mb-2">1/15</div>
+                        <div class="text-4xl font-bold text-red-600 mb-2 completed-lessons">0/10</div>
                         <div class="w-full bg-gray-200 rounded-full h-3">
-                            <div class="bg-purple-600 h-3 rounded-full" style="width: 6.7%"></div>
+                            <div class="bg-red-600 h-3 rounded-full progress-lessons" style="width: 0%"></div>
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">6.7% completato</p>
+                        <p class="text-sm text-gray-600 mt-2 progress-percentage">0% completato</p>
                     </div>
                 </div>
                 
                 <div class="bg-white rounded-xl p-6 shadow-lg">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Parole Imparate</h3>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">47</div>
-                        <p class="text-sm text-gray-600">Vocabolario attivo</p>
+                        <div class="text-4xl font-bold text-orange-600 mb-2">0</div>
+                        <p class="text-sm text-gray-600">Vocabolario Turco</p>
                     </div>
                 </div>
                 
                 <div class="bg-white rounded-xl p-6 shadow-lg">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">Streak Giornaliero</h3>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-orange-600 mb-2">3</div>
+                        <div class="text-4xl font-bold text-purple-600 mb-2">0</div>
                         <p class="text-sm text-gray-600">giorni consecutivi</p>
                     </div>
                 </div>
@@ -487,15 +496,12 @@
     <script>
         // Navigation
         function showSection(sectionName) {
-            // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.add('hidden');
             });
             
-            // Show selected section
             document.getElementById(sectionName).classList.remove('hidden');
             
-            // Update navigation
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
@@ -503,545 +509,347 @@
         }
 
         // Progress tracking
-        let completedLessons = JSON.parse(localStorage.getItem('completedLessons') || '[]');
-        let unlockedLessons = JSON.parse(localStorage.getItem('unlockedLessons') || '[1]'); // Lesson 1 is always unlocked
+        let completedLessons = JSON.parse(localStorage.getItem('turkishCompletedLessons') || '[]');
+        let unlockedLessons = JSON.parse(localStorage.getItem('turkishUnlockedLessons') || '[1]');
 
         // Update lesson cards based on progress
         function updateLessonCards() {
             const lessonCards = document.querySelectorAll('.lesson-card');
             lessonCards.forEach((card, index) => {
                 const lessonNumber = index + 1;
-                const statusSpan = card.querySelector('span');
+                const statusSpan = card.querySelector('.lesson-status');
                 
                 if (completedLessons.includes(lessonNumber)) {
                     statusSpan.textContent = 'Completata ✓';
-                    statusSpan.className = 'bg-green-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white';
+                    statusSpan.className = 'lesson-status bg-green-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white';
+                    card.classList.remove('locked');
                     card.style.opacity = '1';
                     card.style.cursor = 'pointer';
                 } else if (unlockedLessons.includes(lessonNumber)) {
                     statusSpan.textContent = 'Disponibile';
-                    statusSpan.className = 'bg-blue-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white';
+                    statusSpan.className = 'lesson-status bg-green-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white';
+                    card.classList.remove('locked');
                     card.style.opacity = '1';
                     card.style.cursor = 'pointer';
                 } else {
                     statusSpan.textContent = '🔒 Bloccata';
-                    statusSpan.className = 'bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white';
+                    statusSpan.className = 'lesson-status bg-gray-500 bg-opacity-90 px-2 py-1 rounded-full text-sm text-white';
+                    card.classList.add('locked');
                     card.style.opacity = '0.6';
                     card.style.cursor = 'not-allowed';
                 }
             });
             
-            // Update progress bar
-            const progressPercentage = (completedLessons.length / 6) * 100;
+            const progressPercentage = (completedLessons.length / 10) * 100;
             document.querySelector('.progress-bar').style.width = progressPercentage + '%';
-            document.querySelector('.progress-bar').parentElement.nextElementSibling.textContent = Math.round(progressPercentage) + '% completato';
+            document.querySelector('.progress-text').textContent = Math.round(progressPercentage) + '% completato';
             
-            // Update progress section
-            const progressCard = document.querySelector('#progress .bg-white');
-            if (progressCard) {
-                progressCard.querySelector('.text-4xl').textContent = `${completedLessons.length}/6`;
-                progressCard.querySelector('.bg-purple-600').style.width = progressPercentage + '%';
-                progressCard.querySelector('.text-sm').textContent = Math.round(progressPercentage) + '% completato';
+            const completedLessonsEl = document.querySelector('.completed-lessons');
+            const progressLessonsEl = document.querySelector('.progress-lessons');
+            const progressPercentageEl = document.querySelector('.progress-percentage');
+            
+            if (completedLessonsEl) {
+                completedLessonsEl.textContent = `${completedLessons.length}/10`;
+                progressLessonsEl.style.width = progressPercentage + '%';
+                progressPercentageEl.textContent = Math.round(progressPercentage) + '% completato';
             }
         }
 
-        // Lesson content data
+        // Lesson content data with all 10 lessons
         const lessons = {
             1: {
                 title: "Lezione 1: Alfabeto Turco",
                 content: `
                     <div class="space-y-6">
-                        <div class="bg-blue-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Introduzione all'Alfabeto Turco</h3>
-                            <p class="mb-4">L'alfabeto turco moderno è basato sull'alfabeto latino e contiene 29 lettere. È stato adottato nel 1928 durante le riforme di Atatürk, sostituendo l'alfabeto arabo ottomano.</p>
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">L'Alfabeto Turco</h3>
+                            <p class="mb-4">Il turco usa l'alfabeto latino con 29 lettere. Alcune lettere hanno suoni diversi dall'italiano.</p>
                             
-                            <h4 class="font-bold mb-3">Lettere dell'Alfabeto Turco (29 lettere):</h4>
-                            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+                            <h4 class="font-bold mb-3">Lettere Speciali:</h4>
+                            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 mb-6">
                                 <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">A a</div>
-                                    <p class="text-sm font-semibold">[a]</p>
-                                    <p class="text-xs text-gray-500">come in "casa"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('a')">🔊</button>
+                                    <div class="text-3xl mb-2">Ç</div>
+                                    <p class="text-sm font-semibold">ch</p>
                                 </div>
                                 <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">B b</div>
-                                    <p class="text-sm font-semibold">[b]</p>
-                                    <p class="text-xs text-gray-500">come in "bene"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('b')">🔊</button>
+                                    <div class="text-3xl mb-2">Ğ</div>
+                                    <p class="text-sm font-semibold">g dolce</p>
                                 </div>
                                 <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">C c</div>
-                                    <p class="text-sm font-semibold">[dʒ]</p>
-                                    <p class="text-xs text-gray-500">come in "gioco"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('c')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-red-50 rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">Ç ç</div>
-                                    <p class="text-sm font-semibold">[tʃ]</p>
-                                    <p class="text-xs text-gray-500">come in "ciao"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('ç')">🔊</button>
+                                    <div class="text-3xl mb-2">İ</div>
+                                    <p class="text-sm font-semibold">i</p>
                                 </div>
                                 <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">D d</div>
-                                    <p class="text-sm font-semibold">[d]</p>
-                                    <p class="text-xs text-gray-500">come in "dare"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('d')">🔊</button>
+                                    <div class="text-3xl mb-2">Ö</div>
+                                    <p class="text-sm font-semibold">ö</p>
                                 </div>
                                 <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">E e</div>
-                                    <p class="text-sm font-semibold">[e]</p>
-                                    <p class="text-xs text-gray-500">come in "bene"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('e')">🔊</button>
+                                    <div class="text-3xl mb-2">Ş</div>
+                                    <p class="text-sm font-semibold">sh</p>
                                 </div>
                                 <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">F f</div>
-                                    <p class="text-sm font-semibold">[f]</p>
-                                    <p class="text-xs text-gray-500">come in "fare"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('f')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">G g</div>
-                                    <p class="text-sm font-semibold">[g]</p>
-                                    <p class="text-xs text-gray-500">come in "gatto"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('g')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-red-50 rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">Ğ ğ</div>
-                                    <p class="text-sm font-semibold">[ɣ/∅]</p>
-                                    <p class="text-xs text-gray-500">g morbida/silente</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('ğ')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">H h</div>
-                                    <p class="text-sm font-semibold">[h]</p>
-                                    <p class="text-xs text-gray-500">come in inglese "house"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('h')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">I ı</div>
-                                    <p class="text-sm font-semibold">[ɯ]</p>
-                                    <p class="text-xs text-gray-500">i senza punto</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('ı')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-red-50 rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">İ i</div>
-                                    <p class="text-sm font-semibold">[i]</p>
-                                    <p class="text-xs text-gray-500">come in "vino"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('i')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">J j</div>
-                                    <p class="text-sm font-semibold">[ʒ]</p>
-                                    <p class="text-xs text-gray-500">come in francese "je"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('j')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">K k</div>
-                                    <p class="text-sm font-semibold">[k]</p>
-                                    <p class="text-xs text-gray-500">come in "casa"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('k')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">L l</div>
-                                    <p class="text-sm font-semibold">[l]</p>
-                                    <p class="text-xs text-gray-500">come in "luna"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('l')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">M m</div>
-                                    <p class="text-sm font-semibold">[m]</p>
-                                    <p class="text-xs text-gray-500">come in "mare"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('m')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">N n</div>
-                                    <p class="text-sm font-semibold">[n]</p>
-                                    <p class="text-xs text-gray-500">come in "notte"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('n')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">O o</div>
-                                    <p class="text-sm font-semibold">[o]</p>
-                                    <p class="text-xs text-gray-500">come in "sole"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('o')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-red-50 rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">Ö ö</div>
-                                    <p class="text-sm font-semibold">[ø]</p>
-                                    <p class="text-xs text-gray-500">come in francese "peu"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('ö')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">P p</div>
-                                    <p class="text-sm font-semibold">[p]</p>
-                                    <p class="text-xs text-gray-500">come in "pane"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('p')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">R r</div>
-                                    <p class="text-sm font-semibold">[r]</p>
-                                    <p class="text-xs text-gray-500">r vibrante</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('r')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">S s</div>
-                                    <p class="text-sm font-semibold">[s]</p>
-                                    <p class="text-xs text-gray-500">come in "sole"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('s')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-red-50 rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">Ş ş</div>
-                                    <p class="text-sm font-semibold">[ʃ]</p>
-                                    <p class="text-xs text-gray-500">come in "sciare"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('ş')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">T t</div>
-                                    <p class="text-sm font-semibold">[t]</p>
-                                    <p class="text-xs text-gray-500">come in "tavolo"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('t')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">U u</div>
-                                    <p class="text-sm font-semibold">[u]</p>
-                                    <p class="text-xs text-gray-500">come in "luna"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('u')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-red-50 rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">Ü ü</div>
-                                    <p class="text-sm font-semibold">[y]</p>
-                                    <p class="text-xs text-gray-500">come in francese "tu"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('ü')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">V v</div>
-                                    <p class="text-sm font-semibold">[v]</p>
-                                    <p class="text-xs text-gray-500">come in "vino"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('v')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">Y y</div>
-                                    <p class="text-sm font-semibold">[j]</p>
-                                    <p class="text-xs text-gray-500">come in "ieri"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('y')">🔊</button>
-                                </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="turkish-font text-3xl mb-2">Z z</div>
-                                    <p class="text-sm font-semibold">[z]</p>
-                                    <p class="text-xs text-gray-500">come in "zero"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('z')">🔊</button>
-                                </div>
-                            </div>
-                            
-                            <h4 class="font-bold mb-3">Lettere Speciali Turche:</h4>
-                            <div class="bg-orange-50 p-4 rounded-lg mb-6">
-                                <p class="text-sm mb-3">Le lettere evidenziate in rosso sono uniche del turco e non esistono in italiano:</p>
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                    <div class="text-center p-3 bg-red-100 rounded-lg">
-                                        <div class="turkish-font text-2xl mb-1">Ç ç</div>
-                                        <p class="text-xs">come "ciao"</p>
-                                    </div>
-                                    <div class="text-center p-3 bg-red-100 rounded-lg">
-                                        <div class="turkish-font text-2xl mb-1">Ğ ğ</div>
-                                        <p class="text-xs">g morbida</p>
-                                    </div>
-                                    <div class="text-center p-3 bg-red-100 rounded-lg">
-                                        <div class="turkish-font text-2xl mb-1">İ i</div>
-                                        <p class="text-xs">i con punto</p>
-                                    </div>
-                                    <div class="text-center p-3 bg-red-100 rounded-lg">
-                                        <div class="turkish-font text-2xl mb-1">I ı</div>
-                                        <p class="text-xs">i senza punto</p>
-                                    </div>
-                                    <div class="text-center p-3 bg-red-100 rounded-lg">
-                                        <div class="turkish-font text-2xl mb-1">Ö ö</div>
-                                        <p class="text-xs">o con dieresi</p>
-                                    </div>
-                                    <div class="text-center p-3 bg-red-100 rounded-lg">
-                                        <div class="turkish-font text-2xl mb-1">Ş ş</div>
-                                        <p class="text-xs">come "sciare"</p>
-                                    </div>
-                                    <div class="text-center p-3 bg-red-100 rounded-lg">
-                                        <div class="turkish-font text-2xl mb-1">Ü ü</div>
-                                        <p class="text-xs">u con dieresi</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <h4 class="font-bold mb-3">Esempi di Parole Turche:</h4>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-purple-500">
-                                    <div class="turkish-font text-2xl mb-2">ev</div>
-                                    <p class="text-sm font-semibold">casa</p>
-                                    <p class="text-xs text-gray-500">[ev]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('ev')">🔊</button>
-                                </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-purple-500">
-                                    <div class="turkish-font text-2xl mb-2">su</div>
-                                    <p class="text-sm font-semibold">acqua</p>
-                                    <p class="text-xs text-gray-500">[su]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('su')">🔊</button>
-                                </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-blue-500">
-                                    <div class="turkish-font text-2xl mb-2">çay</div>
-                                    <p class="text-sm font-semibold">tè</p>
-                                    <p class="text-xs text-gray-500">[tʃaj]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('çay')">🔊</button>
-                                </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-blue-500">
-                                    <div class="turkish-font text-2xl mb-2">göz</div>
-                                    <p class="text-sm font-semibold">occhio</p>
-                                    <p class="text-xs text-gray-500">[gøz]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('göz')">🔊</button>
-                                </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-green-500">
-                                    <div class="turkish-font text-2xl mb-2">şeker</div>
-                                    <p class="text-sm font-semibold">zucchero</p>
-                                    <p class="text-xs text-gray-500">[ʃeker]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('şeker')">🔊</button>
-                                </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-green-500">
-                                    <div class="turkish-font text-2xl mb-2">güzel</div>
-                                    <p class="text-sm font-semibold">bello</p>
-                                    <p class="text-xs text-gray-500">[gyzel]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('güzel')">🔊</button>
-                                </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-500">
-                                    <div class="turkish-font text-2xl mb-2">Türkiye</div>
-                                    <p class="text-sm font-semibold">Turchia</p>
-                                    <p class="text-xs text-gray-500">[tyrkije]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('türkiye')">🔊</button>
-                                </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-500">
-                                    <div class="turkish-font text-2xl mb-2">İstanbul</div>
-                                    <p class="text-sm font-semibold">Istanbul</p>
-                                    <p class="text-xs text-gray-500">[istanbul]</p>
-                                    <button class="audio-btn mt-2 px-2 py-1 rounded text-white text-xs" onclick="playAudio('istanbul')">🔊</button>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-yellow-50 p-6 rounded-lg mb-6">
-                                <h4 class="font-bold mb-3">💡 Regole di Pronuncia Importanti:</h4>
-                                <div class="space-y-3">
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold text-sm">1</span>
-                                        <p class="text-sm"><strong>Ogni lettera si pronuncia:</strong> Non ci sono lettere mute in turco</p>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold text-sm">2</span>
-                                        <p class="text-sm"><strong>L'accento è sempre sull'ultima sillaba:</strong> mer-HA-ba, İs-tan-BUL</p>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold text-sm">3</span>
-                                        <p class="text-sm"><strong>Ğ (g morbida) allunga la vocale precedente:</strong> dağ = [da:] (montagna)</p>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <span class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold text-sm">4</span>
-                                        <p class="text-sm"><strong>İ/i e I/ı sono lettere diverse:</strong> ip (filo) ≠ ıp (corda)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-green-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Esercizio Pratico</h3>
-                            <p class="mb-4">Prova a leggere queste sillabe:</p>
-                            <div class="grid grid-cols-3 gap-4">
-                                <div class="text-center p-4 bg-white rounded-lg cursor-pointer hover:bg-gray-50" onclick="checkReading('고', 'go')">
-                                    <div class="korean-font text-3xl">고</div>
-                                </div>
-                                <div class="text-center p-4 bg-white rounded-lg cursor-pointer hover:bg-gray-50" onclick="checkReading('누', 'nu')">
-                                    <div class="korean-font text-3xl">누</div>
-                                </div>
-                                <div class="text-center p-4 bg-white rounded-lg cursor-pointer hover:bg-gray-50" onclick="checkReading('도', 'do')">
-                                    <div class="korean-font text-3xl">도</div>
+                                    <div class="text-3xl mb-2">Ü</div>
+                                    <p class="text-sm font-semibold">ü</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="flex justify-between">
                             <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
-                            <button onclick="completeLesson(1)" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600">Completa Lezione</button>
+                            <button onclick="completeLesson(1)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
                         </div>
                     </div>
                 `
             },
             2: {
-                title: "Lezione 2: Saluti e Presentazioni",
+                title: "Lezione 2: Saluti Turchi",
                 content: `
                     <div class="space-y-6">
-                        <div class="bg-purple-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Saluti Quotidiani</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                                    <div>
-                                        <div class="turkish-font text-2xl mb-1">Merhaba</div>
-                                        <p class="text-gray-600 font-semibold">Ciao - saluto universale</p>
-                                        <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">mer-ha-BA</span></p>
-                                        <p class="text-xs text-blue-600">Usato in qualsiasi momento della giornata</p>
-                                    </div>
-                                    <button class="audio-btn px-4 py-2 rounded text-white" onclick="playAudio('merhaba')">🔊 Ascolta</button>
-                                </div>
-                                
-                                <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                                    <div>
-                                        <div class="korean-font text-2xl mb-1">안녕히 가세요</div>
-                                        <p class="text-gray-600 font-semibold">Arrivederci (a chi va via)</p>
-                                        <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">an-nyeong-hi ga-se-yo</span></p>
-                                        <p class="text-xs text-blue-600">Letteralmente: "Andate in pace"</p>
-                                    </div>
-                                    <button class="audio-btn px-4 py-2 rounded text-white" onclick="playAudio('annyeonghigaseyo')">🔊 Ascolta</button>
-                                </div>
-                                
-                                <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                                    <div>
-                                        <div class="korean-font text-2xl mb-1">안녕히 계세요</div>
-                                        <p class="text-gray-600 font-semibold">Arrivederci (a chi resta)</p>
-                                        <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">an-nyeong-hi gye-se-yo</span></p>
-                                        <p class="text-xs text-blue-600">Letteralmente: "Rimanete in pace"</p>
-                                    </div>
-                                    <button class="audio-btn px-4 py-2 rounded text-white" onclick="playAudio('annyeonghigyeseyo')">🔊 Ascolta</button>
-                                </div>
-                                
-                                <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                                    <div>
-                                        <div class="korean-font text-2xl mb-1">좋은 아침입니다</div>
-                                        <p class="text-gray-600 font-semibold">Buongiorno (molto formale)</p>
-                                        <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">jo-eun a-chim-im-ni-da</span></p>
-                                        <p class="text-xs text-blue-600">Usato raramente nella conversazione quotidiana</p>
-                                    </div>
-                                    <button class="audio-btn px-4 py-2 rounded text-white" onclick="playAudio('joeunachimimnida')">🔊 Ascolta</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-pink-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Saluti Informali (친근한 인사)</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                                    <div>
-                                        <div class="korean-font text-2xl mb-1">안녕</div>
-                                        <p class="text-gray-600 font-semibold">Ciao (informale)</p>
-                                        <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">an-nyeong</span></p>
-                                        <p class="text-xs text-blue-600">Usato con amici e persone della stessa età</p>
-                                    </div>
-                                    <button class="audio-btn px-4 py-2 rounded text-white" onclick="playAudio('annyeong')">🔊 Ascolta</button>
-                                </div>
-                                
-                                <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                                    <div>
-                                        <div class="korean-font text-2xl mb-1">잘 가</div>
-                                        <p class="text-gray-600 font-semibold">Ciao (informale, a chi va)</p>
-                                        <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">jal ga</span></p>
-                                        <p class="text-xs text-blue-600">Letteralmente: "Va bene"</p>
-                                    </div>
-                                    <button class="audio-btn px-4 py-2 rounded text-white" onclick="playAudio('jalga')">🔊 Ascolta</button>
-                                </div>
-                                
-                                <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-                                    <div>
-                                        <div class="korean-font text-2xl mb-1">잘 있어</div>
-                                        <p class="text-gray-600 font-semibold">Ciao (informale, a chi resta)</p>
-                                        <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">jal is-seo</span></p>
-                                        <p class="text-xs text-blue-600">Letteralmente: "Stai bene"</p>
-                                    </div>
-                                    <button class="audio-btn px-4 py-2 rounded text-white" onclick="playAudio('jalisseo')">🔊 Ascolta</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-blue-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Presentarsi (자기소개)</h3>
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Saluti Turchi</h3>
                             <div class="space-y-4">
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">저는 [nome]입니다</div>
-                                    <p class="text-gray-600 font-semibold">Io sono [nome] (formale)</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">jeo-neun [nome] im-ni-da</span></p>
-                                    <p class="text-xs text-blue-600">Esempio: 저는 마르코입니다 (jeo-neun ma-reu-ko im-ni-da)</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('jeoneunimnida')">🔊</button>
+                                    <div class="text-2xl mb-2">Merhaba</div>
+                                    <p class="text-gray-600 font-semibold">Ciao</p>
+                                    <p class="text-sm text-blue-600 font-mono">mer-ha-ba</p>
                                 </div>
-                                
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">제 이름은 [nome]예요</div>
-                                    <p class="text-gray-600 font-semibold">Il mio nome è [nome] (informale cortese)</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">je i-reum-eun [nome] ye-yo</span></p>
-                                    <p class="text-xs text-blue-600">Più naturale nella conversazione quotidiana</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('jeireumeun')">🔊</button>
-                                </div>
-                                
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">만나서 반갑습니다</div>
-                                    <p class="text-gray-600 font-semibold">Piacere di conoscerti (formale)</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">man-na-seo ban-gap-seum-ni-da</span></p>
-                                    <p class="text-xs text-blue-600">Letteralmente: "Incontrando [te], sono felice"</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('mannaseobangapseumnida')">🔊</button>
-                                </div>
-                                
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">만나서 반가워요</div>
-                                    <p class="text-gray-600 font-semibold">Piacere di conoscerti (informale cortese)</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">man-na-seo ban-ga-wo-yo</span></p>
-                                    <p class="text-xs text-blue-600">Versione più casual e amichevole</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('mannaseobangawoyo')">🔊</button>
-                                </div>
-                                
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">잘 부탁드립니다</div>
-                                    <p class="text-gray-600 font-semibold">Vi prego di trattarmi bene</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">jal bu-tak-deu-rim-ni-da</span></p>
-                                    <p class="text-xs text-blue-600">Espressione di cortesia dopo le presentazioni</p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('jalbutakdeurimnida')">🔊</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-orange-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Domande Utili (유용한 질문)</h3>
-                            <div class="space-y-4">
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">이름이 뭐예요?</div>
-                                    <p class="text-gray-600 font-semibold">Come ti chiami?</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">i-reum-i mwo-ye-yo?</span></p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('ireumimwoyeyo')">🔊</button>
-                                </div>
-                                
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">어디서 왔어요?</div>
-                                    <p class="text-gray-600 font-semibold">Da dove vieni?</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">eo-di-seo wa-sseo-yo?</span></p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('eodiseowasseyo')">🔊</button>
-                                </div>
-                                
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="korean-font text-xl mb-2">저는 이탈리아에서 왔어요</div>
-                                    <p class="text-gray-600 font-semibold">Vengo dall'Italia</p>
-                                    <p class="text-sm text-gray-500">Pronuncia: <span class="font-mono">jeo-neun i-tal-li-a-e-seo wa-sseo-yo</span></p>
-                                    <button class="audio-btn mt-2 px-3 py-1 rounded text-white text-xs" onclick="playAudio('jeoneuniitalliaeseowasseyo')">🔊</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-yellow-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Dialogo di Esempio</h3>
-                            <div class="space-y-3">
-                                <div class="p-3 bg-white rounded-lg border-l-4 border-blue-500">
-                                    <p class="korean-font text-lg">A: 안녕하세요!</p>
-                                    <p class="text-sm text-gray-600">A: Ciao!</p>
-                                </div>
-                                <div class="p-3 bg-white rounded-lg border-l-4 border-green-500">
-                                    <p class="korean-font text-lg">B: 안녕하세요! 저는 김민수입니다.</p>
-                                    <p class="text-sm text-gray-600">B: Ciao! Io sono Kim Minsu.</p>
-                                </div>
-                                <div class="p-3 bg-white rounded-lg border-l-4 border-blue-500">
-                                    <p class="korean-font text-lg">A: 만나서 반갑습니다!</p>
-                                    <p class="text-sm text-gray-600">A: Piacere di conoscerti!</p>
+                                    <div class="text-2xl mb-2">Günaydın</div>
+                                    <p class="text-gray-600 font-semibold">Buongiorno</p>
+                                    <p class="text-sm text-blue-600 font-mono">gü-nay-dın</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="flex justify-between">
                             <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
-                            <button onclick="completeLesson(2)" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600">Completa Lezione</button>
+                            <button onclick="completeLesson(2)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            3: {
+                title: "Lezione 3: Numeri Turchi",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Numeri Turchi</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-3xl mb-2">1</div>
+                                    <p class="font-semibold">bir</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-3xl mb-2">2</div>
+                                    <p class="font-semibold">iki</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-3xl mb-2">3</div>
+                                    <p class="font-semibold">üç</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-3xl mb-2">4</div>
+                                    <p class="font-semibold">dört</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-3xl mb-2">5</div>
+                                    <p class="font-semibold">beş</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(3)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            4: {
+                title: "Lezione 4: Famiglia Turca",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Famiglia (Aile)</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Baba</div>
+                                    <p class="text-gray-600 font-semibold">Padre</p>
+                                    <p class="text-sm text-blue-600 font-mono">ba-ba</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Anne</div>
+                                    <p class="text-gray-600 font-semibold">Madre</p>
+                                    <p class="text-sm text-blue-600 font-mono">an-ne</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(4)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            5: {
+                title: "Lezione 5: Cibo Turco",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Cibo Turco (Türk Yemeği)</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Kebap</div>
+                                    <p class="text-gray-600 font-semibold">Kebab</p>
+                                    <p class="text-sm text-blue-600 font-mono">ke-bap</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Baklava</div>
+                                    <p class="text-gray-600 font-semibold">Baklava</p>
+                                    <p class="text-sm text-blue-600 font-mono">bak-la-va</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(5)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            6: {
+                title: "Lezione 6: Colori in Turco",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Colori (Renkler)</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Kırmızı</div>
+                                    <p class="text-gray-600 font-semibold">Rosso</p>
+                                    <p class="text-sm text-blue-600 font-mono">kır-mı-zı</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Mavi</div>
+                                    <p class="text-gray-600 font-semibold">Blu</p>
+                                    <p class="text-sm text-blue-600 font-mono">ma-vi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(6)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            7: {
+                title: "Lezione 7: Tempo in Turco",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Tempo (Zaman)</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Bugün</div>
+                                    <p class="text-gray-600 font-semibold">Oggi</p>
+                                    <p class="text-sm text-blue-600 font-mono">bu-gün</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Yarın</div>
+                                    <p class="text-gray-600 font-semibold">Domani</p>
+                                    <p class="text-sm text-blue-600 font-mono">ya-rın</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(7)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            8: {
+                title: "Lezione 8: Shopping in Turco",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Shopping (Alışveriş)</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Ne kadar?</div>
+                                    <p class="text-gray-600 font-semibold">Quanto costa?</p>
+                                    <p class="text-sm text-blue-600 font-mono">ne ka-dar?</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Çok pahalı</div>
+                                    <p class="text-gray-600 font-semibold">Molto caro</p>
+                                    <p class="text-sm text-blue-600 font-mono">çok pa-ha-lı</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(8)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            9: {
+                title: "Lezione 9: Trasporti Turchi",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Trasporti (Ulaşım)</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Otobüs</div>
+                                    <p class="text-gray-600 font-semibold">Autobus</p>
+                                    <p class="text-sm text-blue-600 font-mono">o-to-büs</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Metro</div>
+                                    <p class="text-gray-600 font-semibold">Metropolitana</p>
+                                    <p class="text-sm text-blue-600 font-mono">met-ro</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(9)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
+                        </div>
+                    </div>
+                `
+            },
+            10: {
+                title: "Lezione 10: Cultura Turca",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4">Cultura Turca (Türk Kültürü)</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Çay</div>
+                                    <p class="text-gray-600 font-semibold">Tè turco</p>
+                                    <p class="text-sm text-blue-600 font-mono">çay</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Hamam</div>
+                                    <p class="text-gray-600 font-semibold">Bagno turco</p>
+                                    <p class="text-sm text-blue-600 font-mono">ha-mam</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button onclick="closeLesson()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
+                            <button onclick="completeLesson(10)" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Completa Lezione</button>
                         </div>
                     </div>
                 `
@@ -1050,26 +858,20 @@
 
         // Exercise data
         const exercises = {
-            hangul: {
-                title: "Quiz Hangul",
+            alphabet: {
+                title: "Quiz Alfabeto",
                 questions: [
                     {
-                        question: "Quale suono rappresenta questo carattere?",
-                        character: "ㄱ",
-                        options: ["g/k", "n", "d/t", "r/l"],
+                        question: "Quale suono rappresenta questa lettera?",
+                        character: "Ç",
+                        options: ["ch", "sh", "g", "k"],
                         correct: 0
                     },
                     {
-                        question: "Come si legge questa sillaba?",
-                        character: "가",
-                        options: ["na", "ga", "da", "ra"],
+                        question: "Come si legge questa lettera?",
+                        character: "Ş",
+                        options: ["s", "sh", "z", "c"],
                         correct: 1
-                    },
-                    {
-                        question: "Quale vocale è questa?",
-                        character: "ㅏ",
-                        options: ["eo", "o", "a", "u"],
-                        correct: 2
                     }
                 ]
             },
@@ -1077,15 +879,20 @@
                 title: "Quiz Vocabolario",
                 questions: [
                     {
-                        question: "Cosa significa '안녕하세요'?",
-                        character: "안녕하세요",
+                        question: "Cosa significa 'Merhaba'?",
+                        character: "Merhaba",
                         options: ["Grazie", "Ciao", "Scusa", "Prego"],
                         correct: 1
-                    },
+                    }
+                ]
+            },
+            numbers: {
+                title: "Quiz Numeri",
+                questions: [
                     {
-                        question: "Come si dice 'famiglia' in coreano?",
+                        question: "Come si dice 'uno' in turco?",
                         character: "?",
-                        options: ["음식", "가족", "시간", "학교"],
+                        options: ["iki", "bir", "üç", "dört"],
                         correct: 1
                     }
                 ]
@@ -1098,7 +905,6 @@
 
         // Functions
         function openLesson(lessonNumber) {
-            // Check if lesson is unlocked
             if (!unlockedLessons.includes(lessonNumber)) {
                 alert('🔒 Questa lezione è bloccata! Completa prima le lezioni precedenti per sbloccarla.');
                 return;
@@ -1117,23 +923,19 @@
         }
 
         function completeLesson(lessonNumber) {
-            // Mark lesson as completed
             if (!completedLessons.includes(lessonNumber)) {
                 completedLessons.push(lessonNumber);
-                localStorage.setItem('completedLessons', JSON.stringify(completedLessons));
+                localStorage.setItem('turkishCompletedLessons', JSON.stringify(completedLessons));
                 
-                // Unlock next lesson
                 const nextLesson = lessonNumber + 1;
-                if (nextLesson <= 6 && !unlockedLessons.includes(nextLesson)) {
+                if (nextLesson <= 10 && !unlockedLessons.includes(nextLesson)) {
                     unlockedLessons.push(nextLesson);
-                    localStorage.setItem('unlockedLessons', JSON.stringify(unlockedLessons));
+                    localStorage.setItem('turkishUnlockedLessons', JSON.stringify(unlockedLessons));
                 }
                 
-                // Update UI
                 updateLessonCards();
                 
-                // Show completion message
-                const nextLessonMessage = nextLesson <= 6 ? `\n🎉 Hai sbloccato la Lezione ${nextLesson}!` : '\n🏆 Hai completato tutte le lezioni disponibili!';
+                const nextLessonMessage = nextLesson <= 10 ? `\n🎉 Hai sbloccato la Lezione ${nextLesson}!` : '\n🏆 Hai completato tutte le lezioni disponibili!';
                 alert(`Congratulazioni! Hai completato la Lezione ${lessonNumber}!${nextLessonMessage}`);
             } else {
                 alert(`Hai già completato la Lezione ${lessonNumber}!`);
@@ -1158,12 +960,12 @@
             const question = currentExercise.questions[currentQuestionIndex];
             const content = `
                 <div class="text-center mb-8">
-                    <div class="korean-font text-6xl mb-4">${question.character}</div>
+                    <div class="text-6xl mb-4">${question.character}</div>
                     <h3 class="text-xl font-semibold mb-6">${question.question}</h3>
                     <div class="space-y-3">
                         ${question.options.map((option, index) => `
                             <div class="exercise-option p-4 border-2 border-gray-200 rounded-lg" onclick="selectAnswer(${index})">
-                                ${option}
+                                <span class="text-lg">${option}</span>
                             </div>
                         `).join('')}
                     </div>
@@ -1212,7 +1014,7 @@
                     <p class="text-lg text-gray-600 mb-6">${percentage}% di accuratezza</p>
                     <div class="space-x-4">
                         <button onclick="closeExercise()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600">Chiudi</button>
-                        <button onclick="startExercise('${Object.keys(exercises).find(key => exercises[key] === currentExercise)}')" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">Riprova</button>
+                        <button onclick="startExercise('${Object.keys(exercises).find(key => exercises[key] === currentExercise)}')" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">Riprova</button>
                     </div>
                 </div>
             `;
@@ -1224,77 +1026,25 @@
         }
 
         function playAudio(word) {
-            // Simulate audio playback
             console.log(`Playing audio for: ${word}`);
             alert(`🔊 Audio simulato per: ${word}\n(Nota: L'audio non è supportato in questa demo)`);
         }
 
-        function practiceCharacter(char) {
-            alert(`Pratica il carattere: ${char}\nUsa l'area di disegno qui sotto per esercitarti!`);
-        }
-
-        function checkReading(char, reading) {
-            alert(`Carattere: ${char}\nLettura: ${reading}\nBravo! 👏`);
-        }
-
-        // Canvas for writing practice
-        let canvas, ctx, isDrawing = false;
-
-        window.onload = function() {
-            // Initialize lesson cards
-            updateLessonCards();
-            
-            // Initialize canvas
-            canvas = document.getElementById('writingCanvas');
-            if (canvas) {
-                ctx = canvas.getContext('2d');
-                ctx.strokeStyle = '#333';
-                ctx.lineWidth = 3;
-                ctx.lineCap = 'round';
-
-                canvas.addEventListener('mousedown', startDrawing);
-                canvas.addEventListener('mousemove', draw);
-                canvas.addEventListener('mouseup', stopDrawing);
-                canvas.addEventListener('mouseout', stopDrawing);
-            }
-        };
-
-        function startDrawing(e) {
-            isDrawing = true;
-            const rect = canvas.getBoundingClientRect();
-            ctx.beginPath();
-            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-            const rect = canvas.getBoundingClientRect();
-            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-            ctx.stroke();
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-        }
-
-        function clearCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
-
-        function checkWriting() {
-            alert('Ottimo lavoro! Continua a praticare la scrittura! ✍️');
-        }
-
         function resetProgress() {
             if (confirm('Sei sicuro di voler resettare tutti i progressi? Questa azione non può essere annullata.')) {
-                localStorage.removeItem('completedLessons');
-                localStorage.removeItem('unlockedLessons');
+                localStorage.removeItem('turkishCompletedLessons');
+                localStorage.removeItem('turkishUnlockedLessons');
                 completedLessons = [];
                 unlockedLessons = [1];
                 updateLessonCards();
                 alert('✅ Progressi resettati! Ora puoi ricominciare dall\'inizio.');
             }
         }
+
+        // Initialize on page load
+        window.onload = function() {
+            updateLessonCards();
+        };
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f2a146b709ed9f',t:'MTc1NTE5NzM0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f3ba90c1fded54',t:'MTc1NTIwODg2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
