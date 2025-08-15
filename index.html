@@ -97,7 +97,6 @@
     </style>
 </head>
 <body class="main-font bg-gradient-to-br from-red-50 via-pink-50 to-orange-50 min-h-screen">
-    <!-- Header -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
@@ -120,7 +119,6 @@
         </div>
     </header>
 
-    <!-- Navigation -->
     <nav class="bg-white shadow-sm border-t">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex space-x-8 overflow-x-auto py-4">
@@ -143,10 +141,8 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        <!-- Lessons Section -->
         <div id="lessons" class="section">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2">Lezioni Complete</h2>
@@ -154,7 +150,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Lesson 1 -->
                 <div class="lesson-card rounded-xl p-6 text-white cursor-pointer" onclick="openLesson(1)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 1</h3>
@@ -168,7 +163,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 2 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(2)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 2</h3>
@@ -182,7 +176,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 3 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(3)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 3</h3>
@@ -196,7 +189,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 4 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(4)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 4</h3>
@@ -210,7 +202,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 5 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(5)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 5</h3>
@@ -224,7 +215,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 6 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(6)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 6</h3>
@@ -238,7 +228,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 7 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(7)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 7</h3>
@@ -252,7 +241,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 8 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(8)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 8</h3>
@@ -266,7 +254,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 9 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(9)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 9</h3>
@@ -280,7 +267,6 @@
                     </div>
                 </div>
 
-                <!-- Lesson 10 -->
                 <div class="lesson-card locked rounded-xl p-6 text-white cursor-not-allowed" onclick="openLesson(10)">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-xl font-bold">Lezione 10</h3>
@@ -296,7 +282,6 @@
             </div>
         </div>
 
-        <!-- Exercises Section -->
         <div id="exercises" class="section hidden">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2">Esercizi Interattivi</h2>
@@ -324,7 +309,6 @@
             </div>
         </div>
 
-        <!-- Grammar Section -->
         <div id="grammar" class="section hidden">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2">Grammatica Turca</h2>
@@ -350,7 +334,6 @@
             </div>
         </div>
 
-        <!-- Vocabulary Section -->
         <div id="vocabulary" class="section hidden">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2">Vocabolario</h2>
@@ -426,7 +409,6 @@
             </div>
         </div>
 
-        <!-- Progress Section -->
         <div id="progress" class="section hidden">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2">I Tuoi Progressi</h2>
@@ -471,7 +453,6 @@
         </div>
     </main>
 
-    <!-- Lesson Modal -->
     <div id="lessonModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
         <div class="lesson-content max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-8">
             <div class="flex justify-between items-center mb-6">
@@ -482,7 +463,6 @@
         </div>
     </div>
 
-    <!-- Exercise Modal -->
     <div id="exerciseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
         <div class="lesson-content max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-8">
             <div class="flex justify-between items-center mb-6">
@@ -563,35 +543,81 @@
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
                             <h3 class="text-xl font-bold mb-4">L'Alfabeto Turco</h3>
-                            <p class="mb-4">Il turco usa l'alfabeto latino con 29 lettere. Alcune lettere hanno suoni diversi dall'italiano.</p>
+                            <p class="mb-4">Il turco usa l'alfabeto latino con 29 lettere. Le 29 lettere sono:</p>
                             
-                            <h4 class="font-bold mb-3">Lettere Speciali:</h4>
-                            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 mb-6">
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">Ç</div>
-                                    <p class="text-sm font-semibold">ch</p>
+                            <div class="grid grid-cols-5 md:grid-cols-7 lg:grid-cols-9 gap-3 text-center mb-6">
+                                <div class="p-3 bg-white rounded-lg shadow-sm">A a</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">B b</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">C c</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">Ç ç</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">D d</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">E e</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">F f</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">G g</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">Ğ ğ</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">H h</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">I ı</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">İ i</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">J j</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">K k</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">L l</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">M m</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">N n</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">O o</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">Ö ö</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">P p</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">R r</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">S s</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">Ş ş</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">T t</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">U u</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">Ü ü</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">V v</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">Y y</div>
+                                <div class="p-3 bg-white rounded-lg shadow-sm">Z z</div>
+                            </div>
+                            
+                            <h4 class="font-bold mb-3">Pronuncia delle Lettere Speciali:</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">C c:</h5>
+                                    <p class="text-sm">Si pronuncia come la 'g' di "giornale". Esempio: <strong>cam</strong> (vetro).</p>
                                 </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">Ğ</div>
-                                    <p class="text-sm font-semibold">g dolce</p>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">Ç ç:</h5>
+                                    <p class="text-sm">Si pronuncia come la 'c' di "ciao". Esempio: <strong>çay</strong> (tè).</p>
                                 </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">İ</div>
-                                    <p class="text-sm font-semibold">i</p>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">Ğ ğ (yumuşak g):</h5>
+                                    <p class="text-sm">"G morbida". Non ha un suono proprio, allunga la vocale precedente. Esempio: <strong>dağ</strong> (montagna).</p>
                                 </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">Ö</div>
-                                    <p class="text-sm font-semibold">ö</p>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">I ı:</h5>
+                                    <p class="text-sm">Vocale non puntata, si pronuncia come una 'i' con la bocca aperta, simile alla 'e' di "rosa". Esempio: <strong>sıcak</strong> (caldo).</p>
                                 </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">Ş</div>
-                                    <p class="text-sm font-semibold">sh</p>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">J j:</h5>
+                                    <p class="text-sm">Si pronuncia come la 'j' in inglese. Esempio: <strong>jandarma</strong> (gendarme).</p>
                                 </div>
-                                <div class="text-center p-3 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">Ü</div>
-                                    <p class="text-sm font-semibold">ü</p>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">Ö ö:</h5>
+                                    <p class="text-sm">Simile al suono della 'o' tedesca o francese. Esempio: <strong>göl</strong> (lago).</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">Ş ş:</h5>
+                                    <p class="text-sm">Si pronuncia come la 'sc' di "sciare". Esempio: <strong>şeker</strong> (zucchero).</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">Ü ü:</h5>
+                                    <p class="text-sm">Simile al suono della 'u' tedesca o francese. Esempio: <strong>üzüm</strong> (uva).</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <h5 class="font-semibold mb-1">Y y:</h5>
+                                    <p class="text-sm">Si pronuncia come la 'i' di "ieri". Esempio: <strong>yemek</strong> (cibo).</p>
                                 </div>
                             </div>
+                            
+                            <p class="mb-4">È fondamentale padroneggiare la pronuncia di queste lettere per parlare correttamente il turco.</p>
                         </div>
                         
                         <div class="flex justify-between">
@@ -602,21 +628,54 @@
                 `
             },
             2: {
-                title: "Lezione 2: Saluti Turchi",
+                title: "Lezione 2: Saluti e Presentazioni",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Saluti Turchi</h3>
+                            <h3 class="text-xl font-bold mb-4">Saluti Base (Selamlar)</h3>
                             <div class="space-y-4">
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-2xl mb-2">Merhaba</div>
-                                    <p class="text-gray-600 font-semibold">Ciao</p>
+                                    <p class="text-gray-600 font-semibold">Ciao / Salve</p>
                                     <p class="text-sm text-blue-600 font-mono">mer-ha-ba</p>
                                 </div>
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-2xl mb-2">Günaydın</div>
                                     <p class="text-gray-600 font-semibold">Buongiorno</p>
                                     <p class="text-sm text-blue-600 font-mono">gü-nay-dın</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-2xl mb-2">İyi akşamlar</div>
+                                    <p class="text-gray-600 font-semibold">Buonasera</p>
+                                    <p class="text-sm text-blue-600 font-mono">i-yi ak-sham-lar</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-2xl mb-2">İyi geceler</div>
+                                    <p class="text-gray-600 font-semibold">Buonanotte</p>
+                                    <p class="text-sm text-blue-600 font-mono">i-yi ge-ce-ler</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-4">Frasi Utili</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Adın ne?</div>
+                                    <p class="text-gray-600 font-semibold">Come ti chiami?</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Adım [Nome]</div>
+                                    <p class="text-gray-600 font-semibold">Mi chiamo [Nome]</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Nasılsın?</div>
+                                    <p class="text-gray-600 font-semibold">Come stai?</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">İyiyim, teşekkürler</div>
+                                    <p class="text-gray-600 font-semibold">Sto bene, grazie</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Güle güle</div>
+                                    <p class="text-gray-600 font-semibold">Arrivederci</p>
                                 </div>
                             </div>
                         </div>
@@ -629,33 +688,45 @@
                 `
             },
             3: {
-                title: "Lezione 3: Numeri Turchi",
+                title: "Lezione 3: Numeri e Conto",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Numeri Turchi</h3>
-                            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">1</div>
-                                    <p class="font-semibold">bir</p>
-                                </div>
-                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">2</div>
-                                    <p class="font-semibold">iki</p>
-                                </div>
-                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">3</div>
-                                    <p class="font-semibold">üç</p>
-                                </div>
-                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">4</div>
-                                    <p class="font-semibold">dört</p>
-                                </div>
-                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-3xl mb-2">5</div>
-                                    <p class="font-semibold">beş</p>
-                                </div>
+                            <h3 class="text-xl font-bold mb-4">Numeri da 1 a 20</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">1 - <span class="font-semibold">bir</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">2 - <span class="font-semibold">iki</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">3 - <span class="font-semibold">üç</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">4 - <span class="font-semibold">dört</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">5 - <span class="font-semibold">beş</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">6 - <span class="font-semibold">altı</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">7 - <span class="font-semibold">yedi</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">8 - <span class="font-semibold">sekiz</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">9 - <span class="font-semibold">dokuz</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">10 - <span class="font-semibold">on</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">11 - <span class="font-semibold">on bir</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">12 - <span class="font-semibold">on iki</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">13 - <span class="font-semibold">on üç</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">14 - <span class="font-semibold">on dört</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">15 - <span class="font-semibold">on beş</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">16 - <span class="font-semibold">on altı</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">17 - <span class="font-semibold">on yedi</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">18 - <span class="font-semibold">on sekiz</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">19 - <span class="font-semibold">on dokuz</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">20 - <span class="font-semibold">yirmi</span></div>
                             </div>
+                            <h3 class="text-xl font-bold mt-6 mb-4">Decine</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">30 - <span class="font-semibold">otuz</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">40 - <span class="font-semibold">kırk</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">50 - <span class="font-semibold">elli</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">60 - <span class="font-semibold">altmış</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">70 - <span class="font-semibold">yetmiş</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">80 - <span class="font-semibold">seksen</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">90 - <span class="font-semibold">doksan</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">100 - <span class="font-semibold">yüz</span></div>
+                            </div>
+                            <p class="mt-4">Per formare i numeri successivi basta combinare le decine con le unità. Ad esempio, 25 si dice "yirmi beş".</p>
                         </div>
                         
                         <div class="flex justify-between">
@@ -666,7 +737,7 @@
                 `
             },
             4: {
-                title: "Lezione 4: Famiglia Turca",
+                title: "Lezione 4: Famiglia e Relazioni",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
@@ -675,12 +746,30 @@
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Baba</div>
                                     <p class="text-gray-600 font-semibold">Padre</p>
-                                    <p class="text-sm text-blue-600 font-mono">ba-ba</p>
                                 </div>
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Anne</div>
                                     <p class="text-gray-600 font-semibold">Madre</p>
-                                    <p class="text-sm text-blue-600 font-mono">an-ne</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Kardeş</div>
+                                    <p class="text-gray-600 font-semibold">Fratello/Sorella</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Abi</div>
+                                    <p class="text-gray-600 font-semibold">Fratello maggiore</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Abla</div>
+                                    <p class="text-gray-600 font-semibold">Sorella maggiore</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Çocuk</div>
+                                    <p class="text-gray-600 font-semibold">Bambino/a</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Eş</div>
+                                    <p class="text-gray-600 font-semibold">Coniuge</p>
                                 </div>
                             </div>
                         </div>
@@ -693,21 +782,43 @@
                 `
             },
             5: {
-                title: "Lezione 5: Cibo Turco",
+                title: "Lezione 5: Cibo e Bevande",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Cibo Turco (Türk Yemeği)</h3>
+                            <h3 class="text-xl font-bold mb-4">Cibo (Yemek) e Bevande (İçecekler)</h3>
                             <div class="space-y-4">
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-xl mb-2">Kebap</div>
-                                    <p class="text-gray-600 font-semibold">Kebab</p>
-                                    <p class="text-sm text-blue-600 font-mono">ke-bap</p>
+                                    <div class="text-xl mb-2">Ekmek</div>
+                                    <p class="text-gray-600 font-semibold">Pane</p>
                                 </div>
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-xl mb-2">Baklava</div>
-                                    <p class="text-gray-600 font-semibold">Baklava</p>
-                                    <p class="text-sm text-blue-600 font-mono">bak-la-va</p>
+                                    <div class="text-xl mb-2">Su</div>
+                                    <p class="text-gray-600 font-semibold">Acqua</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Çorba</div>
+                                    <p class="text-gray-600 font-semibold">Zuppa</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Tavuk</div>
+                                    <p class="text-gray-600 font-semibold">Pollo</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Balık</div>
+                                    <p class="text-gray-600 font-semibold">Pesce</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Peynir</div>
+                                    <p class="text-gray-600 font-semibold">Formaggio</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Meyve</div>
+                                    <p class="text-gray-600 font-semibold">Frutta</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Süt</div>
+                                    <p class="text-gray-600 font-semibold">Latte</p>
                                 </div>
                             </div>
                         </div>
@@ -720,21 +831,41 @@
                 `
             },
             6: {
-                title: "Lezione 6: Colori in Turco",
+                title: "Lezione 6: Colori e Descrizioni",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
                             <h3 class="text-xl font-bold mb-4">Colori (Renkler)</h3>
-                            <div class="space-y-4">
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-xl mb-2">Kırmızı</div>
-                                    <p class="text-gray-600 font-semibold">Rosso</p>
-                                    <p class="text-sm text-blue-600 font-mono">kır-mı-zı</p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="w-12 h-12 rounded-full mx-auto mb-2 bg-red-600"></div>
+                                    <p class="font-semibold">Kırmızı</p>
+                                    <p class="text-sm text-gray-600">Rosso</p>
                                 </div>
-                                <div class="p-4 bg-white rounded-lg shadow-sm">
-                                    <div class="text-xl mb-2">Mavi</div>
-                                    <p class="text-gray-600 font-semibold">Blu</p>
-                                    <p class="text-sm text-blue-600 font-mono">ma-vi</p>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="w-12 h-12 rounded-full mx-auto mb-2 bg-blue-600"></div>
+                                    <p class="font-semibold">Mavi</p>
+                                    <p class="text-sm text-gray-600">Blu</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="w-12 h-12 rounded-full mx-auto mb-2 bg-yellow-400"></div>
+                                    <p class="font-semibold">Sarı</p>
+                                    <p class="text-sm text-gray-600">Giallo</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="w-12 h-12 rounded-full mx-auto mb-2 bg-green-600"></div>
+                                    <p class="font-semibold">Yeşil</p>
+                                    <p class="text-sm text-gray-600">Verde</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="w-12 h-12 rounded-full mx-auto mb-2 bg-black"></div>
+                                    <p class="font-semibold">Siyah</p>
+                                    <p class="text-sm text-gray-600">Nero</p>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="w-12 h-12 rounded-full mx-auto mb-2 bg-white border border-gray-300"></div>
+                                    <p class="font-semibold">Beyaz</p>
+                                    <p class="text-sm text-gray-600">Bianco</p>
                                 </div>
                             </div>
                         </div>
@@ -747,22 +878,34 @@
                 `
             },
             7: {
-                title: "Lezione 7: Tempo in Turco",
+                title: "Lezione 7: Tempo e Giorni della Settimana",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Tempo (Zaman)</h3>
+                            <h3 class="text-xl font-bold mb-4">Espressioni di Tempo (Zaman)</h3>
                             <div class="space-y-4">
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Bugün</div>
                                     <p class="text-gray-600 font-semibold">Oggi</p>
-                                    <p class="text-sm text-blue-600 font-mono">bu-gün</p>
                                 </div>
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Yarın</div>
                                     <p class="text-gray-600 font-semibold">Domani</p>
-                                    <p class="text-sm text-blue-600 font-mono">ya-rın</p>
                                 </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Dün</div>
+                                    <p class="text-gray-600 font-semibold">Ieri</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-4">Giorni della Settimana (Haftanın Günleri)</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">Lunedì - <span class="font-semibold">Pazartesi</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">Martedì - <span class="font-semibold">Salı</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">Mercoledì - <span class="font-semibold">Çarşamba</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">Giovedì - <span class="font-semibold">Perşembe</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">Venerdì - <span class="font-semibold">Cuma</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">Sabato - <span class="font-semibold">Cumartesi</span></div>
+                                <div class="text-center p-4 bg-white rounded-lg shadow-sm">Domenica - <span class="font-semibold">Pazar</span></div>
                             </div>
                         </div>
                         
@@ -774,7 +917,7 @@
                 `
             },
             8: {
-                title: "Lezione 8: Shopping in Turco",
+                title: "Lezione 8: Frasi Utili per lo Shopping",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
@@ -783,12 +926,26 @@
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Ne kadar?</div>
                                     <p class="text-gray-600 font-semibold">Quanto costa?</p>
-                                    <p class="text-sm text-blue-600 font-mono">ne ka-dar?</p>
                                 </div>
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Çok pahalı</div>
                                     <p class="text-gray-600 font-semibold">Molto caro</p>
-                                    <p class="text-sm text-blue-600 font-mono">çok pa-ha-lı</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Ucuz</div>
+                                    <p class="text-gray-600 font-semibold">Economico / a buon mercato</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Almak istiyorum</div>
+                                    <p class="text-gray-600 font-semibold">Voglio comprare</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Kredi kartı kabul ediyor musunuz?</div>
+                                    <p class="text-gray-600 font-semibold">Accettate carte di credito?</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Nerede tuvalet var?</div>
+                                    <p class="text-gray-600 font-semibold">Dov'è il bagno?</p>
                                 </div>
                             </div>
                         </div>
@@ -801,7 +958,7 @@
                 `
             },
             9: {
-                title: "Lezione 9: Trasporti Turchi",
+                title: "Lezione 9: Orientamento e Trasporti",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
@@ -810,12 +967,37 @@
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Otobüs</div>
                                     <p class="text-gray-600 font-semibold">Autobus</p>
-                                    <p class="text-sm text-blue-600 font-mono">o-to-büs</p>
                                 </div>
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Metro</div>
                                     <p class="text-gray-600 font-semibold">Metropolitana</p>
-                                    <p class="text-sm text-blue-600 font-mono">met-ro</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Taksi</div>
+                                    <p class="text-gray-600 font-semibold">Taxi</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Tren</div>
+                                    <p class="text-gray-600 font-semibold">Treno</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-4">Orientamento</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Burası nerede?</div>
+                                    <p class="text-gray-600 font-semibold">Dov'è questo posto?</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">[Destinazione] nerede?</div>
+                                    <p class="text-gray-600 font-semibold">Dov'è [Destinazione]?</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Sağ</div>
+                                    <p class="text-gray-600 font-semibold">Destra</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Sol</div>
+                                    <p class="text-gray-600 font-semibold">Sinistra</p>
                                 </div>
                             </div>
                         </div>
@@ -828,21 +1010,38 @@
                 `
             },
             10: {
-                title: "Lezione 10: Cultura Turca",
+                title: "Lezione 10: Aspetti della Cultura Turca",
                 content: `
                     <div class="space-y-6">
                         <div class="bg-red-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4">Cultura Turca (Türk Kültürü)</h3>
+                            <h3 class="text-xl font-bold mb-4">Tradizioni e Cultura (Türk Kültürü)</h3>
                             <div class="space-y-4">
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Çay</div>
-                                    <p class="text-gray-600 font-semibold">Tè turco</p>
-                                    <p class="text-sm text-blue-600 font-mono">çay</p>
+                                    <p class="text-gray-600 font-semibold">Tè turco, un simbolo di ospitalità. Viene servito in piccoli bicchieri a tulipano.</p>
                                 </div>
                                 <div class="p-4 bg-white rounded-lg shadow-sm">
                                     <div class="text-xl mb-2">Hamam</div>
-                                    <p class="text-gray-600 font-semibold">Bagno turco</p>
-                                    <p class="text-sm text-blue-600 font-mono">ha-mam</p>
+                                    <p class="text-gray-600 font-semibold">Il bagno turco, un'antica tradizione di purificazione e relax.</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Türk Kahvesi</div>
+                                    <p class="text-gray-600 font-semibold">Caffè turco, noto per la sua preparazione e il suo sapore forte. Spesso accompagnato da dolci come il lokum.</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Lokum</div>
+                                    <p class="text-gray-600 font-semibold">Dolci tipici, conosciuti anche come "Turkish Delight".</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-4">Proverbi e Frasi</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Hoş geldiniz</div>
+                                    <p class="text-gray-600 font-semibold">Benvenuto (letteralmente: "siete venuti bene")</p>
+                                </div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm">
+                                    <div class="text-xl mb-2">Afiyet olsun</div>
+                                    <p class="text-gray-600 font-semibold">Buon appetito</p>
                                 </div>
                             </div>
                         </div>
@@ -872,6 +1071,18 @@
                         character: "Ş",
                         options: ["s", "sh", "z", "c"],
                         correct: 1
+                    },
+                     {
+                        question: "Quale lettera si pronuncia come la 'i' di 'ieri'?",
+                        character: "?",
+                        options: ["İ", "Ü", "Y", "Ğ"],
+                        correct: 2
+                    },
+                    {
+                        question: "Come si pronuncia 'ı' (senza il puntino)?",
+                        character: "I",
+                        options: ["come una 'i' normale", "come una 'e' chiusa", "come una 'e' aperta", "come una 'o'"],
+                        correct: 2
                     }
                 ]
             },
@@ -883,6 +1094,18 @@
                         character: "Merhaba",
                         options: ["Grazie", "Ciao", "Scusa", "Prego"],
                         correct: 1
+                    },
+                     {
+                        question: "Qual è la traduzione di 'Ekmek'?",
+                        character: "Ekmek",
+                        options: ["Pesce", "Acqua", "Pane", "Zuppa"],
+                        correct: 2
+                    },
+                    {
+                        question: "Cosa significa 'Teşekkürler'?",
+                        character: "Teşekkürler",
+                        options: ["Arrivederci", "Buongiorno", "Grazie", "Prego"],
+                        correct: 2
                     }
                 ]
             },
@@ -893,6 +1116,18 @@
                         question: "Come si dice 'uno' in turco?",
                         character: "?",
                         options: ["iki", "bir", "üç", "dört"],
+                        correct: 1
+                    },
+                     {
+                        question: "Qual è la traduzione di 'yirmi'?",
+                        character: "yirmi",
+                        options: ["10", "15", "20", "50"],
+                        correct: 2
+                    },
+                    {
+                        question: "Come si forma il numero '25'?",
+                        character: "25",
+                        options: ["iki beş", "yirmi beş", "yirmi bir beş", "on beş"],
                         correct: 1
                     }
                 ]
