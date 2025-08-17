@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本語を学ぶ - Impara il Giapponese</title>
+    <title>🇹🇷 Türkçe Öğren - Impara il Turco</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-        }
-        
-        .japanese-text {
-            font-family: 'Noto Sans JP', sans-serif;
         }
         
         .gradient-bg {
             background: linear-gradient(135deg, #dc2626 0%, #ffffff 50%, #dc2626 100%);
         }
         
-        .japanese-bg {
+        .turkish-bg {
             background: linear-gradient(135deg, #dc2626 0%, #ffffff 25%, #dc2626 50%, #ffffff 75%, #dc2626 100%);
         }
         
@@ -72,25 +68,21 @@
             color: #ffffff;
         }
         
-        .japanese-pattern {
+        .turkish-pattern {
             background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
                               radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
             background-size: 40px 40px;
         }
         
-        .sakura-bg {
-            background: linear-gradient(135deg, #fce4ec 0%, #ffffff 50%, #ffebee 100%);
-        }
-        
-        .romaji-text {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            color: #dc2626;
-        }
-        
-        .transliteration-badge {
+        .pronunciation-badge {
             background: linear-gradient(135deg, #fef3c7, #fde68a);
             border: 1px solid #f59e0b;
+        }
+        
+        .unlocked-badge {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            border: 1px solid #10b981;
+            color: #065f46;
         }
     </style>
 </head>
@@ -98,14 +90,17 @@
     <div id="app" class="container mx-auto px-4 py-8">
         <!-- Header -->
         <header class="text-center mb-12">
-            <div class="gradient-bg text-white rounded-3xl p-8 mb-8 relative overflow-hidden japanese-pattern">
-                <div class="absolute top-4 right-4 text-4xl floating-element golden-text">🌸</div>
-                <div class="absolute bottom-4 left-4 text-3xl floating-element golden-text" style="animation-delay: -2s;">🏯</div>
-                <div class="absolute top-4 left-4 text-2xl floating-element golden-text" style="animation-delay: -1s;">⛩️</div>
-                <h1 class="text-5xl font-bold mb-4 japanese-text header-title">🇯🇵 日本語を学ぶ</h1>
-                <p class="text-xl opacity-95 header-title font-medium">Impara il Giapponese con Lezioni Interattive</p>
-                <p class="text-base opacity-85 mt-3 japanese-text header-title">こんにちは！いらっしゃいませ！</p>
-                <p class="text-sm opacity-75 mt-1 romaji-text header-title">(Konnichiwa! Irasshaimase!)</p>
+            <div class="gradient-bg text-white rounded-3xl p-8 mb-8 relative overflow-hidden turkish-pattern">
+                <div class="absolute top-4 right-4 text-4xl floating-element golden-text">🌙</div>
+                <div class="absolute bottom-4 left-4 text-3xl floating-element golden-text" style="animation-delay: -2s;">🕌</div>
+                <div class="absolute top-4 left-4 text-2xl floating-element golden-text" style="animation-delay: -1s;">🧿</div>
+                <h1 class="text-5xl font-bold mb-4 header-title">🇹🇷 Türkçe Öğren</h1>
+                <p class="text-xl opacity-95 header-title font-medium">Impara il Turco con Lezioni Complete</p>
+                <p class="text-base opacity-85 mt-3 header-title">Merhaba! Hoş geldiniz!</p>
+                <p class="text-sm opacity-75 mt-1 header-title">(Ciao! Benvenuti!)</p>
+                <div class="unlocked-badge rounded-full px-4 py-2 mt-4 inline-block">
+                    <span class="font-bold">🔓 TUTTO SBLOCCATO!</span>
+                </div>
             </div>
         </header>
 
@@ -113,16 +108,16 @@
         <nav class="flex justify-center mb-8">
             <div class="bg-white rounded-full p-2 shadow-lg">
                 <button onclick="showSection('home')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-red-600 text-white">
-                    🏠 ホーム <span class="text-xs opacity-75">(Hōmu)</span>
+                    🏠 Ana Sayfa
                 </button>
                 <button onclick="showSection('lessons')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100">
-                    📚 レッスン <span class="text-xs opacity-75">(Ressun)</span>
+                    📚 Dersler
                 </button>
                 <button onclick="showSection('exercises')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100">
-                    🎯 練習 <span class="text-xs opacity-75">(Renshū)</span>
+                    🎯 Alıştırmalar
                 </button>
                 <button onclick="showSection('progress')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100">
-                    📊 進歩 <span class="text-xs opacity-75">(Shinpo)</span>
+                    📊 İlerleme
                 </button>
             </div>
         </nav>
@@ -133,86 +128,85 @@
                 <!-- Quick Start Card -->
                 <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
                     <div class="text-4xl mb-4">🚀</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800 japanese-text">今すぐ始める</h3>
-                    <p class="text-sm text-gray-500 romaji-text mb-2">(Ima sugu hajimeru)</p>
-                    <p class="text-gray-600 mb-4 japanese-text">ひらがなを学ぼう</p>
-                    <p class="text-xs text-gray-500 romaji-text mb-4">(Hiragana wo manabō)</p>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Hemen Başla</h3>
+                    <p class="text-sm text-gray-500 mb-2">(Inizia Subito)</p>
+                    <p class="text-gray-600 mb-4">Türk alfabesini öğren</p>
+                    <p class="text-xs text-gray-500 mb-4">(Impara l'alfabeto turco)</p>
                     <button onclick="startLesson(1)" class="bg-gradient-to-r from-red-600 to-red-500 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all">
-                        始める <span class="text-xs opacity-75">(Hajimeru)</span>
+                        Başla (Inizia)
                     </button>
                 </div>
 
                 <!-- Progress Card -->
                 <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
                     <div class="text-4xl mb-4">📈</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800 japanese-text">進歩状況</h3>
-                    <p class="text-sm text-gray-500 romaji-text mb-2">(Shinpo jōkyō)</p>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">İlerleme Durumu</h3>
+                    <p class="text-sm text-gray-500 mb-2">(Stato dei Progressi)</p>
                     <div class="mb-4">
                         <div class="flex justify-between text-sm text-gray-600 mb-1">
-                            <span class="japanese-text">完了 <span class="romaji-text text-xs">(Kanryō)</span></span>
-                            <span id="progress-percent">40%</span>
+                            <span>Tamamlandı</span>
+                            <span id="progress-percent">100%</span>
                         </div>
                         <div class="bg-gray-200 rounded-full h-2">
-                            <div id="progress-bar" class="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" style="width: 40%"></div>
+                            <div id="progress-bar" class="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" style="width: 100%"></div>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-600 japanese-text">3つのレッスン完了</p>
-                    <p class="text-xs text-gray-500 romaji-text">(Mittsu no ressun kanryō)</p>
+                    <p class="text-sm text-gray-600">Tüm dersler açık!</p>
+                    <p class="text-xs text-gray-500">(Tutte le lezioni disponibili!)</p>
                 </div>
 
                 <!-- Daily Goal Card -->
                 <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
                     <div class="text-4xl mb-4">🎯</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800 japanese-text">毎日の目標</h3>
-                    <p class="text-sm text-gray-500 romaji-text mb-2">(Mainichi no mokuhyō)</p>
-                    <p class="text-gray-600 mb-4">25分の学習</p>
-                    <p class="text-xs text-gray-500 romaji-text mb-4">(25-fun no gakushū)</p>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Günlük Hedef</h3>
+                    <p class="text-sm text-gray-500 mb-2">(Obiettivo Giornaliero)</p>
+                    <p class="text-gray-600 mb-4">30 dakika çalışma</p>
+                    <p class="text-xs text-gray-500 mb-4">(30 minuti di studio)</p>
                     <div class="flex items-center">
-                        <div class="bg-yellow-400 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold mr-2">9</div>
-                        <span class="text-sm text-gray-600 japanese-text">日連続！ 🔥</span>
-                        <span class="text-xs text-gray-500 romaji-text ml-2">(Nichi renzoku!)</span>
+                        <div class="bg-yellow-400 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold mr-2">∞</div>
+                        <span class="text-sm text-gray-600">Sınırsız erişim! 🔥</span>
                     </div>
                 </div>
             </div>
 
             <!-- Featured Lessons -->
             <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800 japanese-text">おすすめレッスン</h2>
-                <p class="text-sm text-gray-500 romaji-text mb-6">(Osusume ressun)</p>
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">Önerilen Dersler</h2>
+                <p class="text-sm text-gray-500 mb-6">(Lezioni Consigliate)</p>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="border-2 border-red-200 rounded-xl p-6 hover:border-red-400 transition-all cursor-pointer" onclick="startLesson(1)">
                         <div class="flex items-center mb-4">
                             <div class="bg-red-100 rounded-full p-3 mr-4">
-                                <span class="text-2xl japanese-text">あ</span>
+                                <span class="text-2xl">Aa</span>
                             </div>
                             <div>
-                                <h3 class="font-bold text-lg japanese-text">ひらがな</h3>
-                                <p class="text-sm romaji-text text-red-600 mb-1">(Hiragana)</p>
-                                <p class="text-gray-600 text-sm">基本的な日本語文字を学ぶ</p>
-                                <p class="text-xs text-gray-500 romaji-text">(Kihon-teki na nihongo moji wo manabu)</p>
+                                <h3 class="font-bold text-lg">Türk Alfabesi</h3>
+                                <p class="text-sm text-red-600 mb-1">(Alfabeto Turco)</p>
+                                <p class="text-gray-600 text-sm">29 harfli Türk alfabesini öğren</p>
+                                <p class="text-xs text-gray-500">(Impara l'alfabeto turco di 29 lettere)</p>
                             </div>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm japanese-text">初級 <span class="romaji-text text-xs">(Shokyū)</span></span>
-                            <span class="text-red-600 font-medium">35分</span>
+                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold">🔓 AÇIK</span>
+                            <span class="text-red-600 font-medium">25 dk</span>
                         </div>
                     </div>
 
                     <div class="border-2 border-pink-200 rounded-xl p-6 hover:border-pink-400 transition-all cursor-pointer" onclick="startLesson(2)">
                         <div class="flex items-center mb-4">
                             <div class="bg-pink-100 rounded-full p-3 mr-4">
-                                <span class="text-2xl japanese-text">カ</span>
+                                <span class="text-2xl">👋</span>
                             </div>
                             <div>
-                                <h3 class="font-bold text-lg japanese-text">カタカナ</h3>
-                                <p class="text-sm romaji-text text-pink-600 mb-1">(Katakana)</p>
-                                <p class="text-gray-600 text-sm">外来語用の文字システム</p>
-                                <p class="text-xs text-gray-500 romaji-text">(Gairaigo-yō no moji shisutemu)</p>
+                                <h3 class="font-bold text-lg">Selamlaşma</h3>
+                                <p class="text-sm text-pink-600 mb-1">(Saluti)</p>
+                                <p class="text-gray-600 text-sm">Temel selamlaşma ifadeleri</p>
+                                <p class="text-xs text-gray-500">(Espressioni di saluto di base)</p>
                             </div>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm japanese-text">中級 <span class="romaji-text text-xs">(Chūkyū)</span></span>
-                            <span class="text-pink-600 font-medium">30分</span>
+                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold">🔓 AÇIK</span>
+                            <span class="text-pink-600 font-medium">20 dk</span>
                         </div>
                     </div>
                 </div>
@@ -222,8 +216,8 @@
         <!-- Lessons Section -->
         <div id="lessons-section" class="section hidden">
             <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800 japanese-text">📚 日本語レッスン</h2>
-                <p class="text-center text-gray-500 romaji-text mb-8">(Nihongo ressun)</p>
+                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">📚 Türkçe Dersleri</h2>
+                <p class="text-center text-gray-500 mb-8">(Lezioni di Turco)</p>
                 
                 <div class="grid gap-6">
                     <!-- Lesson 1 -->
@@ -232,14 +226,14 @@
                             <div class="flex items-center">
                                 <div class="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">1</div>
                                 <div>
-                                    <h3 class="text-xl font-bold japanese-text">ひらがな - Hiragana</h3>
-                                    <p class="text-gray-600 japanese-text">あ, い, う, え, お, か, き, く, け, こ, さ, し, す, せ, そ...</p>
-                                    <p class="text-sm text-gray-500 romaji-text">a, i, u, e, o, ka, ki, ku, ke, ko, sa, shi, su, se, so...</p>
+                                    <h3 class="text-xl font-bold">Türk Alfabesi - Alfabeto Turco</h3>
+                                    <p class="text-gray-600">A, B, C, Ç, D, E, F, G, Ğ, H, I, İ, J, K, L, M, N, O, Ö, P, R, S, Ş, T, U, Ü, V, Y, Z</p>
+                                    <p class="text-sm text-gray-500">29 lettere dell'alfabeto turco con pronuncia</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm mb-2 japanese-text">利用可能 <span class="romaji-text text-xs">(Riyō kanō)</span></div>
-                                <span class="text-red-600 font-medium">35分</span>
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-red-600 font-medium">25 dk</span>
                             </div>
                         </div>
                     </div>
@@ -250,14 +244,14 @@
                             <div class="flex items-center">
                                 <div class="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">2</div>
                                 <div>
-                                    <h3 class="text-xl font-bold japanese-text">カタカナ - Katakana</h3>
-                                    <p class="text-gray-600 japanese-text">ア, イ, ウ, エ, オ, カ, キ, ク, ケ, コ, サ, シ, ス, セ, ソ...</p>
-                                    <p class="text-sm text-gray-500 romaji-text">A, I, U, E, O, KA, KI, KU, KE, KO, SA, SHI, SU, SE, SO...</p>
+                                    <h3 class="text-xl font-bold">Selamlaşma - Saluti</h3>
+                                    <p class="text-gray-600">Merhaba, Günaydın, İyi akşamlar, Hoş geldiniz, Teşekkürler</p>
+                                    <p class="text-sm text-gray-500">Saluti e espressioni di cortesia essenziali</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm mb-2 japanese-text">利用可能 <span class="romaji-text text-xs">(Riyō kanō)</span></div>
-                                <span class="text-pink-600 font-medium">30分</span>
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-pink-600 font-medium">20 dk</span>
                             </div>
                         </div>
                     </div>
@@ -268,14 +262,14 @@
                             <div class="flex items-center">
                                 <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">3</div>
                                 <div>
-                                    <h3 class="text-xl font-bold japanese-text">基本漢字 - Kanji Base</h3>
-                                    <p class="text-gray-600 japanese-text">人, 日, 本, 水, 火, 木, 金, 土, 山, 川</p>
-                                    <p class="text-sm text-gray-500 romaji-text">hito, hi, hon, mizu, hi, ki, kin, tsuchi, yama, kawa</p>
+                                    <h3 class="text-xl font-bold">Sayılar - Numeri</h3>
+                                    <p class="text-gray-600">Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz, On</p>
+                                    <p class="text-sm text-gray-500">Numeri da 1 a 100 in turco</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm mb-2 japanese-text">利用可能 <span class="romaji-text text-xs">(Riyō kanō)</span></div>
-                                <span class="text-purple-600 font-medium">40分</span>
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-purple-600 font-medium">30 dk</span>
                             </div>
                         </div>
                     </div>
@@ -286,14 +280,14 @@
                             <div class="flex items-center">
                                 <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">4</div>
                                 <div>
-                                    <h3 class="text-xl font-bold japanese-text">数字 - Numeri</h3>
-                                    <p class="text-gray-600 japanese-text">一, 二, 三, 四, 五, 六, 七, 八, 九, 十</p>
-                                    <p class="text-sm text-gray-500 romaji-text">ichi, ni, san, yon, go, roku, nana, hachi, kyū, jū</p>
+                                    <h3 class="text-xl font-bold">Renkler - Colori</h3>
+                                    <p class="text-gray-600">Kırmızı, Mavi, Sarı, Yeşil, Siyah, Beyaz, Pembe, Mor</p>
+                                    <p class="text-sm text-gray-500">Tutti i colori principali in turco</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm mb-2 japanese-text">利用可能 <span class="romaji-text text-xs">(Riyō kanō)</span></div>
-                                <span class="text-blue-600 font-medium">25分</span>
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-blue-600 font-medium">18 dk</span>
                             </div>
                         </div>
                     </div>
@@ -304,14 +298,14 @@
                             <div class="flex items-center">
                                 <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">5</div>
                                 <div>
-                                    <h3 class="text-xl font-bold japanese-text">色 - Colori</h3>
-                                    <p class="text-gray-600 japanese-text">赤, 青, 黄色, 緑, 黒, 白, 紫, ピンク</p>
-                                    <p class="text-sm text-gray-500 romaji-text">aka, ao, kiiro, midori, kuro, shiro, murasaki, pinku</p>
+                                    <h3 class="text-xl font-bold">Aile - Famiglia</h3>
+                                    <p class="text-gray-600">Anne, Baba, Kardeş, Büyükanne, Büyükbaba, Çocuk</p>
+                                    <p class="text-sm text-gray-500">Membri della famiglia e relazioni</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mb-2 japanese-text">利用可能 <span class="romaji-text text-xs">(Riyō kanō)</span></div>
-                                <span class="text-green-600 font-medium">20分</span>
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-green-600 font-medium">25 dk</span>
                             </div>
                         </div>
                     </div>
@@ -322,14 +316,50 @@
                             <div class="flex items-center">
                                 <div class="bg-orange-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">6</div>
                                 <div>
-                                    <h3 class="text-xl font-bold japanese-text">家族 - Famiglia</h3>
-                                    <p class="text-gray-600 japanese-text">父, 母, 兄, 姉, 弟, 妹, 祖父, 祖母</p>
-                                    <p class="text-sm text-gray-500 romaji-text">chichi, haha, ani, ane, otōto, imōto, sofu, sobo</p>
+                                    <h3 class="text-xl font-bold">Yemekler - Cibo</h3>
+                                    <p class="text-gray-600">Ekmek, Su, Çay, Kahve, Et, Balık, Meyve, Sebze</p>
+                                    <p class="text-sm text-gray-500">Cibi e bevande essenziali</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm mb-2 japanese-text">利用可能 <span class="romaji-text text-xs">(Riyō kanō)</span></div>
-                                <span class="text-orange-600 font-medium">28分</span>
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-orange-600 font-medium">22 dk</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 7 -->
+                    <div class="border-2 border-indigo-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(7)">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">7</div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Zaman - Tempo</h3>
+                                    <p class="text-gray-600">Bugün, Yarın, Dün, Saat, Dakika, Hafta, Ay, Yıl</p>
+                                    <p class="text-sm text-gray-500">Espressioni di tempo e calendario</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-indigo-600 font-medium">28 dk</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 8 -->
+                    <div class="border-2 border-teal-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(8)">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="bg-teal-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">8</div>
+                                <div>
+                                    <h3 class="text-xl font-bold">Fiiller - Verbi</h3>
+                                    <p class="text-gray-600">Gelmek, Gitmek, Yapmak, Olmak, Vermek, Almak</p>
+                                    <p class="text-sm text-gray-500">Verbi essenziali e coniugazioni base</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold">🔓 AÇIK</div>
+                                <span class="text-teal-600 font-medium">35 dk</span>
                             </div>
                         </div>
                     </div>
@@ -340,31 +370,31 @@
         <!-- Exercises Section -->
         <div id="exercises-section" class="section hidden">
             <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800 japanese-text">🎯 インタラクティブ練習</h2>
-                <p class="text-center text-gray-500 romaji-text mb-8">(Intarakutibu renshū)</p>
+                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">🎯 İnteraktif Alıştırmalar</h2>
+                <p class="text-center text-gray-500 mb-8">(Esercizi Interattivi)</p>
                 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="japanese-bg rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('matching')">
-                        <div class="text-4xl mb-4">🔗</div>
-                        <h3 class="text-xl font-bold mb-2 japanese-text">文字マッチング</h3>
-                        <p class="text-sm romaji-text text-red-600 mb-2">(Moji macchingu)</p>
-                        <p class="text-gray-600 mb-4">ひらがなとカタカナを音と合わせる</p>
-                        <p class="text-xs text-gray-500 romaji-text mb-4">(Hiragana to katakana wo oto to awaseru)</p>
+                    <div class="turkish-bg rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('vocabulary')">
+                        <div class="text-4xl mb-4">📝</div>
+                        <h3 class="text-xl font-bold mb-2">Kelime Eşleştirme</h3>
+                        <p class="text-sm text-red-600 mb-2">(Abbinamento Parole)</p>
+                        <p class="text-gray-600 mb-4">Türkçe kelimeleri İtalyanca karşılıklarıyla eşleştir</p>
+                        <p class="text-xs text-gray-500 mb-4">(Abbina le parole turche con i loro equivalenti italiani)</p>
                         <div class="flex justify-between items-center">
-                            <span class="bg-red-200 text-red-800 px-3 py-1 rounded-full text-sm">20問</span>
-                            <span class="text-red-600 font-medium">12分</span>
+                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold">🔓 AÇIK</span>
+                            <span class="text-red-600 font-medium">15 dk</span>
                         </div>
                     </div>
 
-                    <div class="sakura-bg rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('pronunciation')">
+                    <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('pronunciation')">
                         <div class="text-4xl mb-4">🎵</div>
-                        <h3 class="text-xl font-bold mb-2 japanese-text">発音練習</h3>
-                        <p class="text-sm romaji-text text-pink-600 mb-2">(Hatsuon renshū)</p>
-                        <p class="text-gray-600 mb-4">日本語の音を聞いて繰り返す</p>
-                        <p class="text-xs text-gray-500 romaji-text mb-4">(Nihongo no oto wo kiite kurikaesu)</p>
+                        <h3 class="text-xl font-bold mb-2">Telaffuz Pratiği</h3>
+                        <p class="text-sm text-pink-600 mb-2">(Pratica di Pronuncia)</p>
+                        <p class="text-gray-600 mb-4">Türkçe sesleri dinle ve tekrarla</p>
+                        <p class="text-xs text-gray-500 mb-4">(Ascolta e ripeti i suoni turchi)</p>
                         <div class="flex justify-between items-center">
-                            <span class="bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm">30音</span>
-                            <span class="text-pink-600 font-medium">18分</span>
+                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold">🔓 AÇIK</span>
+                            <span class="text-pink-600 font-medium">20 dk</span>
                         </div>
                     </div>
                 </div>
@@ -372,39 +402,39 @@
                 <!-- Sample Exercise -->
                 <div id="exercise-area" class="bg-gray-50 rounded-xl p-8">
                     <div class="text-center">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-800 japanese-text">練習: 文字認識</h3>
-                        <p class="text-sm text-gray-500 romaji-text mb-6">(Renshū: Moji ninshiki)</p>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-800">Alıştırma: Kelime Tanıma</h3>
+                        <p class="text-sm text-gray-500 mb-6">(Esercizio: Riconoscimento Parole)</p>
                         <div class="bg-white rounded-xl p-8 mb-6 shadow-inner">
-                            <div class="text-8xl japanese-text mb-4 pulse-animation text-red-600" id="exercise-character">あ</div>
-                            <div class="transliteration-badge rounded-full px-4 py-2 mb-6 inline-block">
-                                <span class="romaji-text font-bold text-amber-800" id="exercise-romaji">a</span>
+                            <div class="text-6xl mb-4 pulse-animation text-red-600" id="exercise-word">Merhaba</div>
+                            <div class="pronunciation-badge rounded-full px-4 py-2 mb-6 inline-block">
+                                <span class="font-bold text-amber-800" id="exercise-pronunciation">mer-ha-BA</span>
                             </div>
-                            <p class="text-lg text-gray-600 mb-8">この日本語の文字はどう読みますか？</p>
-                            <p class="text-sm text-gray-500 romaji-text mb-8">(Kono nihongo no moji wa dō yomimasu ka?)</p>
+                            <p class="text-lg text-gray-600 mb-8">Bu Türkçe kelime ne anlama geliyor?</p>
+                            <p class="text-sm text-gray-500 mb-8">(Cosa significa questa parola turca?)</p>
                             
                             <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                                <button onclick="checkAnswer('a')" class="exercise-option bg-red-100 hover:bg-red-200 text-red-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    A (come "amore")
+                                <button onclick="checkAnswer('ciao')" class="exercise-option bg-red-100 hover:bg-red-200 text-red-800 py-4 px-6 rounded-xl font-medium transition-all">
+                                    Ciao
                                 </button>
-                                <button onclick="checkAnswer('i')" class="exercise-option bg-blue-100 hover:bg-blue-200 text-blue-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    I (come "Italia")
+                                <button onclick="checkAnswer('grazie')" class="exercise-option bg-blue-100 hover:bg-blue-200 text-blue-800 py-4 px-6 rounded-xl font-medium transition-all">
+                                    Grazie
                                 </button>
-                                <button onclick="checkAnswer('u')" class="exercise-option bg-green-100 hover:bg-green-200 text-green-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    U (come "uva")
+                                <button onclick="checkAnswer('arrivederci')" class="exercise-option bg-green-100 hover:bg-green-200 text-green-800 py-4 px-6 rounded-xl font-medium transition-all">
+                                    Arrivederci
                                 </button>
-                                <button onclick="checkAnswer('e')" class="exercise-option bg-purple-100 hover:bg-purple-200 text-purple-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    E (come "elefante")
+                                <button onclick="checkAnswer('prego')" class="exercise-option bg-purple-100 hover:bg-purple-200 text-purple-800 py-4 px-6 rounded-xl font-medium transition-all">
+                                    Prego
                                 </button>
                             </div>
                         </div>
                         
                         <div id="exercise-feedback" class="hidden">
                             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-4">
-                                <strong class="japanese-text">正解！ 🎉</strong> <span class="japanese-text">あ</span> si pronuncia "A" (come in "amore")
-                                <br><span class="romaji-text text-sm">(Seikai! "A" wa "amore" no "A" to onaji desu)</span>
+                                <strong>Doğru! 🎉</strong> "Merhaba" significa "Ciao" in italiano
+                                <br><span class="text-sm">(Corretto! "Merhaba" vuol dire "Ciao")</span>
                             </div>
                             <button onclick="nextExercise()" class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
-                                <span class="japanese-text">次の問題</span> → <span class="romaji-text text-sm">(Tsugi no mondai)</span>
+                                Sonraki Soru → (Prossima Domanda)
                             </button>
                         </div>
                     </div>
@@ -415,163 +445,156 @@
         <!-- Progress Section -->
         <div id="progress-section" class="section hidden">
             <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800 japanese-text">📊 進歩状況</h2>
-                <p class="text-center text-gray-500 romaji-text mb-8">(Shinpo jōkyō)</p>
+                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">📊 İlerleme Durumu</h2>
+                <p class="text-center text-gray-500 mb-8">(Stato dei Progressi)</p>
                 
                 <div class="grid md:grid-cols-3 gap-6 mb-8">
                     <div class="text-center">
                         <div class="bg-gradient-to-br from-red-600 to-red-500 text-white rounded-2xl p-6">
-                            <div class="text-3xl font-bold">3</div>
-                            <div class="text-sm opacity-90 japanese-text">完了レッスン</div>
-                            <div class="text-xs opacity-75 romaji-text">(Kanryō ressun)</div>
+                            <div class="text-3xl font-bold">8</div>
+                            <div class="text-sm opacity-90">Tamamlanan Ders</div>
+                            <div class="text-xs opacity-75">(Lezioni Completate)</div>
                         </div>
                     </div>
                     <div class="text-center">
                         <div class="bg-gradient-to-br from-pink-500 to-red-500 text-white rounded-2xl p-6">
-                            <div class="text-3xl font-bold">46</div>
-                            <div class="text-sm opacity-90 japanese-text">学習した文字</div>
-                            <div class="text-xs opacity-75 romaji-text">(Gakushū shita moji)</div>
+                            <div class="text-3xl font-bold">150+</div>
+                            <div class="text-sm opacity-90">Öğrenilen Kelime</div>
+                            <div class="text-xs opacity-75">(Parole Imparate)</div>
                         </div>
                     </div>
                     <div class="text-center">
                         <div class="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl p-6">
-                            <div class="text-3xl font-bold">9</div>
-                            <div class="text-sm opacity-90 japanese-text">連続日数</div>
-                            <div class="text-xs opacity-75 romaji-text">(Renzoku nissū)</div>
+                            <div class="text-3xl font-bold">∞</div>
+                            <div class="text-sm opacity-90">Sınırsız Erişim</div>
+                            <div class="text-xs opacity-75">(Accesso Illimitato)</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Hiragana Progress -->
+                    <!-- Alphabet Progress -->
                     <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold mb-2 text-red-700 japanese-text">ひらがな進歩</h3>
-                        <p class="text-sm text-red-600 romaji-text mb-4">(Hiragana shinpo)</p>
-                        <div class="grid grid-cols-5 gap-2 mb-4">
+                        <h3 class="text-xl font-bold mb-2 text-red-700">Alfabe İlerlemesi</h3>
+                        <p class="text-sm text-red-600 mb-4">(Progresso Alfabeto)</p>
+                        <div class="grid grid-cols-6 gap-2 mb-4">
                             <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">あ</div>
-                                <div class="text-xs romaji-text text-red-600">a</div>
+                                <div class="text-lg font-bold">A</div>
                                 <div class="text-xs text-red-700">✓</div>
                             </div>
                             <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">い</div>
-                                <div class="text-xs romaji-text text-red-600">i</div>
+                                <div class="text-lg font-bold">B</div>
                                 <div class="text-xs text-red-700">✓</div>
                             </div>
                             <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">う</div>
-                                <div class="text-xs romaji-text text-red-600">u</div>
+                                <div class="text-lg font-bold">C</div>
                                 <div class="text-xs text-red-700">✓</div>
                             </div>
                             <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">え</div>
-                                <div class="text-xs romaji-text text-red-600">e</div>
+                                <div class="text-lg font-bold">Ç</div>
                                 <div class="text-xs text-red-700">✓</div>
                             </div>
                             <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">お</div>
-                                <div class="text-xs romaji-text text-red-600">o</div>
+                                <div class="text-lg font-bold">D</div>
+                                <div class="text-xs text-red-700">✓</div>
+                            </div>
+                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+                                <div class="text-lg font-bold">E</div>
                                 <div class="text-xs text-red-700">✓</div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-5 gap-2 mb-4">
+                        <div class="grid grid-cols-6 gap-2 mb-4">
                             <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">か</div>
-                                <div class="text-xs romaji-text text-red-600">ka</div>
+                                <div class="text-lg font-bold">F</div>
                                 <div class="text-xs text-red-700">✓</div>
                             </div>
                             <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">き</div>
-                                <div class="text-xs romaji-text text-red-600">ki</div>
+                                <div class="text-lg font-bold">G</div>
                                 <div class="text-xs text-red-700">✓</div>
                             </div>
-                            <div class="bg-yellow-100 border-2 border-yellow-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">く</div>
-                                <div class="text-xs romaji-text text-yellow-600">ku</div>
-                                <div class="text-xs text-yellow-700">~</div>
+                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+                                <div class="text-lg font-bold">Ğ</div>
+                                <div class="text-xs text-red-700">✓</div>
                             </div>
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">け</div>
-                                <div class="text-xs romaji-text text-gray-500">ke</div>
-                                <div class="text-xs text-gray-500">○</div>
+                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+                                <div class="text-lg font-bold">H</div>
+                                <div class="text-xs text-red-700">✓</div>
                             </div>
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">こ</div>
-                                <div class="text-xs romaji-text text-gray-500">ko</div>
-                                <div class="text-xs text-gray-500">○</div>
+                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+                                <div class="text-lg font-bold">I</div>
+                                <div class="text-xs text-red-700">✓</div>
+                            </div>
+                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+                                <div class="text-lg font-bold">İ</div>
+                                <div class="text-xs text-red-700">✓</div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-600">46文字中15文字完了</p>
-                        <p class="text-xs text-gray-500 romaji-text">(46 moji-chū 15 moji kanryō)</p>
+                        <p class="text-sm text-gray-600">29 harfin tamamı öğrenildi!</p>
+                        <p class="text-xs text-gray-500">(Tutte le 29 lettere imparate!)</p>
                     </div>
 
-                    <!-- Katakana Progress -->
+                    <!-- Vocabulary Progress -->
                     <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold mb-2 text-pink-700 japanese-text">カタカナ進歩</h3>
-                        <p class="text-sm text-pink-600 romaji-text mb-4">(Katakana shinpo)</p>
-                        <div class="grid grid-cols-5 gap-2 mb-4">
-                            <div class="bg-pink-100 border-2 border-pink-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">ア</div>
-                                <div class="text-xs romaji-text text-pink-600">A</div>
-                                <div class="text-xs text-pink-700">✓</div>
+                        <h3 class="text-xl font-bold mb-2 text-pink-700">Kelime Dağarcığı</h3>
+                        <p class="text-sm text-pink-600 mb-4">(Vocabolario)</p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Selamlaşma</span>
+                                <div class="flex items-center">
+                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <span class="text-xs text-green-600">15/15</span>
+                                </div>
                             </div>
-                            <div class="bg-pink-100 border-2 border-pink-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">イ</div>
-                                <div class="text-xs romaji-text text-pink-600">I</div>
-                                <div class="text-xs text-pink-700">✓</div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Sayılar</span>
+                                <div class="flex items-center">
+                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <span class="text-xs text-green-600">20/20</span>
+                                </div>
                             </div>
-                            <div class="bg-pink-100 border-2 border-pink-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">ウ</div>
-                                <div class="text-xs romaji-text text-pink-600">U</div>
-                                <div class="text-xs text-pink-700">✓</div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Renkler</span>
+                                <div class="flex items-center">
+                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <span class="text-xs text-green-600">12/12</span>
+                                </div>
                             </div>
-                            <div class="bg-yellow-100 border-2 border-yellow-400 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">エ</div>
-                                <div class="text-xs romaji-text text-yellow-600">E</div>
-                                <div class="text-xs text-yellow-700">~</div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Aile</span>
+                                <div class="flex items-center">
+                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <span class="text-xs text-green-600">18/18</span>
+                                </div>
                             </div>
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">オ</div>
-                                <div class="text-xs romaji-text text-gray-500">O</div>
-                                <div class="text-xs text-gray-500">○</div>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-5 gap-2 mb-4">
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">カ</div>
-                                <div class="text-xs romaji-text text-gray-500">KA</div>
-                                <div class="text-xs text-gray-500">○</div>
-                            </div>
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">キ</div>
-                                <div class="text-xs romaji-text text-gray-500">KI</div>
-                                <div class="text-xs text-gray-500">○</div>
-                            </div>
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">ク</div>
-                                <div class="text-xs romaji-text text-gray-500">KU</div>
-                                <div class="text-xs text-gray-500">○</div>
-                            </div>
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">ケ</div>
-                                <div class="text-xs romaji-text text-gray-500">KE</div>
-                                <div class="text-xs text-gray-500">○</div>
-                            </div>
-                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-2 text-center">
-                                <div class="text-lg japanese-text">コ</div>
-                                <div class="text-xs romaji-text text-gray-500">KO</div>
-                                <div class="text-xs text-gray-500">○</div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Yemekler</span>
+                                <div class="flex items-center">
+                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                    <span class="text-xs text-green-600">25/25</span>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-600">46文字中4文字完了</p>
-                        <p class="text-xs text-gray-500 romaji-text">(46 moji-chū 4 moji kanryō)</p>
+                        <p class="text-sm text-gray-600 mt-4">Toplam: 150+ kelime öğrenildi!</p>
+                        <p class="text-xs text-gray-500">(Totale: 150+ parole imparate!)</p>
                     </div>
                 </div>
                 
-                <div class="mt-6 text-sm text-gray-600 text-center">
-                    <span class="inline-block w-3 h-3 bg-red-400 rounded-full mr-2"></span><span class="japanese-text">学習完了</span> <span class="romaji-text text-xs">(Gakushū kanryō)</span>
-                    <span class="inline-block w-3 h-3 bg-yellow-400 rounded-full mr-2 ml-4"></span><span class="japanese-text">学習中</span> <span class="romaji-text text-xs">(Gakushū-chū)</span>
-                    <span class="inline-block w-3 h-3 bg-gray-300 rounded-full mr-2 ml-4"></span><span class="japanese-text">未学習</span> <span class="romaji-text text-xs">(Mi-gakushū)</span>
+                <div class="mt-6 text-center">
+                    <div class="unlocked-badge rounded-full px-6 py-3 inline-block">
+                        <span class="font-bold text-lg">🎉 TÜM İÇERİK AÇIK! 🎉</span>
+                        <br>
+                        <span class="text-sm">(Tutto il contenuto è sbloccato!)</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -607,146 +630,268 @@
 
         // Lesson functions
         function startLesson(lessonNumber) {
-            if (lessonNumber === 1) {
-                showLessonContent('ひらがな (Hiragana)', 'あ, い, う, え, お, か, き, く, け, こ, さ, し, す, せ, そ, た, ち, つ, て, と, な, に, ぬ, ね, の, は, ひ, ふ, へ, ほ, ま, み, む, め, も, や, ゆ, よ, ら, り, る, れ, ろ, わ, を, ん', [
-                    {char: 'あ', sound: 'A', romaji: 'a', example: 'あり (ari) - formica'},
-                    {char: 'い', sound: 'I', romaji: 'i', example: 'いぬ (inu) - cane'},
-                    {char: 'う', sound: 'U', romaji: 'u', example: 'うみ (umi) - mare'},
-                    {char: 'え', sound: 'E', romaji: 'e', example: 'えき (eki) - stazione'},
-                    {char: 'お', sound: 'O', romaji: 'o', example: 'おかし (okashi) - dolci'},
-                    {char: 'か', sound: 'KA', romaji: 'ka', example: 'かぞく (kazoku) - famiglia'},
-                    {char: 'き', sound: 'KI', romaji: 'ki', example: 'きれい (kirei) - bello'},
-                    {char: 'く', sound: 'KU', romaji: 'ku', example: 'くるま (kuruma) - auto'},
-                    {char: 'け', sound: 'KE', romaji: 'ke', example: 'けさ (kesa) - stamattina'},
-                    {char: 'こ', sound: 'KO', romaji: 'ko', example: 'こども (kodomo) - bambino'},
-                    {char: 'さ', sound: 'SA', romaji: 'sa', example: 'さかな (sakana) - pesce'},
-                    {char: 'し', sound: 'SHI', romaji: 'shi', example: 'しごと (shigoto) - lavoro'},
-                    {char: 'す', sound: 'SU', romaji: 'su', example: 'すし (sushi) - sushi'},
-                    {char: 'せ', sound: 'SE', romaji: 'se', example: 'せんせい (sensei) - insegnante'},
-                    {char: 'そ', sound: 'SO', romaji: 'so', example: 'そら (sora) - cielo'},
-                    {char: 'た', sound: 'TA', romaji: 'ta', example: 'たべもの (tabemono) - cibo'},
-                    {char: 'ち', sound: 'CHI', romaji: 'chi', example: 'ちいさい (chiisai) - piccolo'},
-                    {char: 'つ', sound: 'TSU', romaji: 'tsu', example: 'つき (tsuki) - luna'},
-                    {char: 'て', sound: 'TE', romaji: 'te', example: 'て (te) - mano'},
-                    {char: 'と', sound: 'TO', romaji: 'to', example: 'ともだち (tomodachi) - amico'}
-                ]);
-            } else if (lessonNumber === 2) {
-                showLessonContent('カタカナ (Katakana)', 'ア, イ, ウ, エ, オ, カ, キ, ク, ケ, コ, サ, シ, ス, セ, ソ, タ, チ, ツ, テ, ト, ナ, ニ, ヌ, ネ, ノ, ハ, ヒ, フ, ヘ, ホ, マ, ミ, ム, メ, モ, ヤ, ユ, ヨ, ラ, リ, ル, レ, ロ, ワ, ヲ, ン', [
-                    {char: 'ア', sound: 'A', romaji: 'A', example: 'アメリカ (Amerika) - America'},
-                    {char: 'イ', sound: 'I', romaji: 'I', example: 'イタリア (Itaria) - Italia'},
-                    {char: 'ウ', sound: 'U', romaji: 'U', example: 'ウイスキー (Uisukī) - whisky'},
-                    {char: 'エ', sound: 'E', romaji: 'E', example: 'エレベーター (Erebētā) - ascensore'},
-                    {char: 'オ', sound: 'O', romaji: 'O', example: 'オレンジ (Orenji) - arancia'},
-                    {char: 'カ', sound: 'KA', romaji: 'KA', example: 'カメラ (Kamera) - camera'},
-                    {char: 'キ', sound: 'KI', romaji: 'KI', example: 'キス (Kisu) - bacio'},
-                    {char: 'ク', sound: 'KU', romaji: 'KU', example: 'クッキー (Kukkī) - biscotto'},
-                    {char: 'ケ', sound: 'KE', romaji: 'KE', example: 'ケーキ (Kēki) - torta'},
-                    {char: 'コ', sound: 'KO', romaji: 'KO', example: 'コーヒー (Kōhī) - caffè'},
-                    {char: 'サ', sound: 'SA', romaji: 'SA', example: 'サラダ (Sarada) - insalata'},
-                    {char: 'シ', sound: 'SHI', romaji: 'SHI', example: 'シャツ (Shatsu) - camicia'},
-                    {char: 'ス', sound: 'SU', romaji: 'SU', example: 'スパゲッティ (Supagetti) - spaghetti'},
-                    {char: 'セ', sound: 'SE', romaji: 'SE', example: 'セーター (Sētā) - maglione'},
-                    {char: 'ソ', sound: 'SO', romaji: 'SO', example: 'ソファ (Sofa) - divano'},
-                    {char: 'タ', sound: 'TA', romaji: 'TA', example: 'タクシー (Takushī) - taxi'},
-                    {char: 'チ', sound: 'CHI', romaji: 'CHI', example: 'チーズ (Chīzu) - formaggio'},
-                    {char: 'ツ', sound: 'TSU', romaji: 'TSU', example: 'ツアー (Tsuā) - tour'},
-                    {char: 'テ', sound: 'TE', romaji: 'TE', example: 'テレビ (Terebi) - televisione'},
-                    {char: 'ト', sound: 'TO', romaji: 'TO', example: 'トマト (Tomato) - pomodoro'}
-                ]);
-            } else if (lessonNumber === 3) {
-                showLessonContent('基本漢字 (Kihon Kanji)', '人, 日, 本, 水, 火, 木, 金, 土, 山, 川', [
-                    {char: '人', sound: 'ひと/じん', romaji: 'hito/jin', example: '人 (hito) - persona'},
-                    {char: '日', sound: 'ひ/にち', romaji: 'hi/nichi', example: '日本 (Nihon) - Giappone'},
-                    {char: '本', sound: 'ほん', romaji: 'hon', example: '本 (hon) - libro'},
-                    {char: '水', sound: 'みず/すい', romaji: 'mizu/sui', example: '水 (mizu) - acqua'},
-                    {char: '火', sound: 'ひ/か', romaji: 'hi/ka', example: '火曜日 (kayōbi) - martedì'},
-                    {char: '木', sound: 'き/もく', romaji: 'ki/moku', example: '木曜日 (mokuyōbi) - giovedì'},
-                    {char: '金', sound: 'きん/かね', romaji: 'kin/kane', example: '金曜日 (kin\'yōbi) - venerdì'},
-                    {char: '土', sound: 'つち/ど', romaji: 'tsuchi/do', example: '土曜日 (doyōbi) - sabato'},
-                    {char: '山', sound: 'やま/さん', romaji: 'yama/san', example: '山 (yama) - montagna'},
-                    {char: '川', sound: 'かわ/がわ', romaji: 'kawa/gawa', example: '川 (kawa) - fiume'},
-                    {char: '月', sound: 'つき/げつ', romaji: 'tsuki/getsu', example: '月曜日 (getsuyōbi) - lunedì'},
-                    {char: '年', sound: 'とし/ねん', romaji: 'toshi/nen', example: '今年 (kotoshi) - quest\'anno'}
-                ]);
-            } else if (lessonNumber === 4) {
-                showLessonContent('数字 (Sūji)', '一, 二, 三, 四, 五, 六, 七, 八, 九, 十', [
-                    {char: '一', sound: 'いち', romaji: 'ichi', example: '一 (ichi) - uno'},
-                    {char: '二', sound: 'に', romaji: 'ni', example: '二 (ni) - due'},
-                    {char: '三', sound: 'さん', romaji: 'san', example: '三 (san) - tre'},
-                    {char: '四', sound: 'よん/し', romaji: 'yon/shi', example: '四 (yon) - quattro'},
-                    {char: '五', sound: 'ご', romaji: 'go', example: '五 (go) - cinque'},
-                    {char: '六', sound: 'ろく', romaji: 'roku', example: '六 (roku) - sei'},
-                    {char: '七', sound: 'なな/しち', romaji: 'nana/shichi', example: '七 (nana) - sette'},
-                    {char: '八', sound: 'はち', romaji: 'hachi', example: '八 (hachi) - otto'},
-                    {char: '九', sound: 'きゅう/く', romaji: 'kyū/ku', example: '九 (kyū) - nove'},
-                    {char: '十', sound: 'じゅう', romaji: 'jū', example: '十 (jū) - dieci'},
-                    {char: '百', sound: 'ひゃく', romaji: 'hyaku', example: '百 (hyaku) - cento'},
-                    {char: '千', sound: 'せん', romaji: 'sen', example: '千 (sen) - mille'}
-                ]);
-            } else if (lessonNumber === 5) {
-                showLessonContent('色 (Iro)', '赤, 青, 黄色, 緑, 黒, 白, 紫, ピンク', [
-                    {char: '赤', sound: 'あか', romaji: 'aka', example: '赤 (aka) - rosso'},
-                    {char: '青', sound: 'あお', romaji: 'ao', example: '青 (ao) - blu'},
-                    {char: '黄色', sound: 'きいろ', romaji: 'kiiro', example: '黄色 (kiiro) - giallo'},
-                    {char: '緑', sound: 'みどり', romaji: 'midori', example: '緑 (midori) - verde'},
-                    {char: '黒', sound: 'くろ', romaji: 'kuro', example: '黒 (kuro) - nero'},
-                    {char: '白', sound: 'しろ', romaji: 'shiro', example: '白 (shiro) - bianco'},
-                    {char: '紫', sound: 'むらさき', romaji: 'murasaki', example: '紫 (murasaki) - viola'},
-                    {char: 'ピンク', sound: 'ピンク', romaji: 'pinku', example: 'ピンク (pinku) - rosa'},
-                    {char: '茶色', sound: 'ちゃいろ', romaji: 'chairo', example: '茶色 (chairo) - marrone'},
-                    {char: 'オレンジ', sound: 'オレンジ', romaji: 'orenji', example: 'オレンジ (orenji) - arancione'}
-                ]);
-            } else if (lessonNumber === 6) {
-                showLessonContent('家族 (Kazoku)', '父, 母, 兄, 姉, 弟, 妹, 祖父, 祖母', [
-                    {char: '父', sound: 'ちち', romaji: 'chichi', example: '父 (chichi) - padre'},
-                    {char: '母', sound: 'はは', romaji: 'haha', example: '母 (haha) - madre'},
-                    {char: '兄', sound: 'あに', romaji: 'ani', example: '兄 (ani) - fratello maggiore'},
-                    {char: '姉', sound: 'あね', romaji: 'ane', example: '姉 (ane) - sorella maggiore'},
-                    {char: '弟', sound: 'おとうと', romaji: 'otōto', example: '弟 (otōto) - fratello minore'},
-                    {char: '妹', sound: 'いもうと', romaji: 'imōto', example: '妹 (imōto) - sorella minore'},
-                    {char: '祖父', sound: 'そふ', romaji: 'sofu', example: '祖父 (sofu) - nonno'},
-                    {char: '祖母', sound: 'そぼ', romaji: 'sobo', example: '祖母 (sobo) - nonna'},
-                    {char: '家族', sound: 'かぞく', romaji: 'kazoku', example: '家族 (kazoku) - famiglia'},
-                    {char: '息子', sound: 'むすこ', romaji: 'musuko', example: '息子 (musuko) - figlio'},
-                    {char: '娘', sound: 'むすめ', romaji: 'musume', example: '娘 (musume) - figlia'}
-                ]);
+            const lessons = {
+                1: {
+                    title: 'Türk Alfabesi (Alfabeto Turco)',
+                    description: '29 harfli Türk alfabesi - L\'alfabeto turco di 29 lettere',
+                    content: [
+                        {letter: 'A', sound: 'a', example: 'Anne (madre)'},
+                        {letter: 'B', sound: 'be', example: 'Baba (padre)'},
+                        {letter: 'C', sound: 'ce', example: 'Cam (vetro)'},
+                        {letter: 'Ç', sound: 'çe', example: 'Çay (tè)'},
+                        {letter: 'D', sound: 'de', example: 'Dost (amico)'},
+                        {letter: 'E', sound: 'e', example: 'Ev (casa)'},
+                        {letter: 'F', sound: 'fe', example: 'Fil (elefante)'},
+                        {letter: 'G', sound: 'ge', example: 'Gül (rosa)'},
+                        {letter: 'Ğ', sound: 'yumuşak g', example: 'Dağ (montagna)'},
+                        {letter: 'H', sound: 'he', example: 'Hava (aria)'},
+                        {letter: 'I', sound: 'ı', example: 'Işık (luce)'},
+                        {letter: 'İ', sound: 'i', example: 'İyi (bene)'},
+                        {letter: 'J', sound: 'je', example: 'Jale (brina)'},
+                        {letter: 'K', sound: 'ke', example: 'Kedi (gatto)'},
+                        {letter: 'L', sound: 'le', example: 'Lale (tulipano)'},
+                        {letter: 'M', sound: 'me', example: 'Mavi (blu)'},
+                        {letter: 'N', sound: 'ne', example: 'Nane (menta)'},
+                        {letter: 'O', sound: 'o', example: 'Okul (scuola)'},
+                        {letter: 'Ö', sound: 'ö', example: 'Öğretmen (insegnante)'},
+                        {letter: 'P', sound: 'pe', example: 'Pazar (mercato)'},
+                        {letter: 'R', sound: 're', example: 'Renk (colore)'},
+                        {letter: 'S', sound: 'se', example: 'Su (acqua)'},
+                        {letter: 'Ş', sound: 'şe', example: 'Şeker (zucchero)'},
+                        {letter: 'T', sound: 'te', example: 'Tuz (sale)'},
+                        {letter: 'U', sound: 'u', example: 'Uzun (lungo)'},
+                        {letter: 'Ü', sound: 'ü', example: 'Üzüm (uva)'},
+                        {letter: 'V', sound: 've', example: 'Vazo (vaso)'},
+                        {letter: 'Y', sound: 'ye', example: 'Yol (strada)'},
+                        {letter: 'Z', sound: 'ze', example: 'Zaman (tempo)'}
+                    ]
+                },
+                2: {
+                    title: 'Selamlaşma (Saluti)',
+                    description: 'Temel selamlaşma ifadeleri - Espressioni di saluto di base',
+                    content: [
+                        {turkish: 'Merhaba', italian: 'Ciao', pronunciation: 'mer-ha-BA'},
+                        {turkish: 'Günaydın', italian: 'Buongiorno', pronunciation: 'gü-nay-DIN'},
+                        {turkish: 'İyi akşamlar', italian: 'Buonasera', pronunciation: 'i-yi ak-şam-LAR'},
+                        {turkish: 'İyi geceler', italian: 'Buonanotte', pronunciation: 'i-yi ge-ce-LER'},
+                        {turkish: 'Hoş geldiniz', italian: 'Benvenuti', pronunciation: 'hoş gel-di-NIZ'},
+                        {turkish: 'Hoş bulduk', italian: 'Grazie (risposta)', pronunciation: 'hoş bul-DUK'},
+                        {turkish: 'Teşekkürler', italian: 'Grazie', pronunciation: 'te-şek-kür-LER'},
+                        {turkish: 'Rica ederim', italian: 'Prego', pronunciation: 'ri-ca e-de-RIM'},
+                        {turkish: 'Özür dilerim', italian: 'Mi scusi', pronunciation: 'ö-zür di-le-RIM'},
+                        {turkish: 'Görüşürüz', italian: 'Ci vediamo', pronunciation: 'gö-rü-şü-RÜZ'},
+                        {turkish: 'Hoşça kal', italian: 'Arrivederci', pronunciation: 'hoş-ça KAL'},
+                        {turkish: 'Elveda', italian: 'Addio', pronunciation: 'el-ve-DA'}
+                    ]
+                },
+                3: {
+                    title: 'Sayılar (Numeri)',
+                    description: 'Türkçe sayılar 1-100 - Numeri turchi 1-100',
+                    content: [
+                        {turkish: 'Bir', italian: 'Uno', number: '1', pronunciation: 'BIR'},
+                        {turkish: 'İki', italian: 'Due', number: '2', pronunciation: 'i-KI'},
+                        {turkish: 'Üç', italian: 'Tre', number: '3', pronunciation: 'ÜÇ'},
+                        {turkish: 'Dört', italian: 'Quattro', number: '4', pronunciation: 'DÖRT'},
+                        {turkish: 'Beş', italian: 'Cinque', number: '5', pronunciation: 'BEŞ'},
+                        {turkish: 'Altı', italian: 'Sei', number: '6', pronunciation: 'al-TI'},
+                        {turkish: 'Yedi', italian: 'Sette', number: '7', pronunciation: 'ye-DI'},
+                        {turkish: 'Sekiz', italian: 'Otto', number: '8', pronunciation: 'se-KIZ'},
+                        {turkish: 'Dokuz', italian: 'Nove', number: '9', pronunciation: 'do-KUZ'},
+                        {turkish: 'On', italian: 'Dieci', number: '10', pronunciation: 'ON'},
+                        {turkish: 'Yirmi', italian: 'Venti', number: '20', pronunciation: 'yir-MI'},
+                        {turkish: 'Otuz', italian: 'Trenta', number: '30', pronunciation: 'o-TUZ'},
+                        {turkish: 'Kırk', italian: 'Quaranta', number: '40', pronunciation: 'KIRK'},
+                        {turkish: 'Elli', italian: 'Cinquanta', number: '50', pronunciation: 'el-LI'},
+                        {turkish: 'Yüz', italian: 'Cento', number: '100', pronunciation: 'YÜZ'}
+                    ]
+                },
+                4: {
+                    title: 'Renkler (Colori)',
+                    description: 'Temel renkler Türkçe - Colori di base in turco',
+                    content: [
+                        {turkish: 'Kırmızı', italian: 'Rosso', pronunciation: 'kır-mı-ZI', color: '#dc2626'},
+                        {turkish: 'Mavi', italian: 'Blu', pronunciation: 'ma-VI', color: '#2563eb'},
+                        {turkish: 'Sarı', italian: 'Giallo', pronunciation: 'sa-RI', color: '#eab308'},
+                        {turkish: 'Yeşil', italian: 'Verde', pronunciation: 'ye-ŞIL', color: '#16a34a'},
+                        {turkish: 'Siyah', italian: 'Nero', pronunciation: 'si-YAH', color: '#000000'},
+                        {turkish: 'Beyaz', italian: 'Bianco', pronunciation: 'be-YAZ', color: '#ffffff'},
+                        {turkish: 'Pembe', italian: 'Rosa', pronunciation: 'pem-BE', color: '#ec4899'},
+                        {turkish: 'Mor', italian: 'Viola', pronunciation: 'MOR', color: '#9333ea'},
+                        {turkish: 'Turuncu', italian: 'Arancione', pronunciation: 'tu-run-CU', color: '#ea580c'},
+                        {turkish: 'Kahverengi', italian: 'Marrone', pronunciation: 'kah-ve-ren-GI', color: '#92400e'},
+                        {turkish: 'Gri', italian: 'Grigio', pronunciation: 'GRI', color: '#6b7280'},
+                        {turkish: 'Lacivert', italian: 'Blu scuro', pronunciation: 'la-ci-VERT', color: '#1e3a8a'}
+                    ]
+                },
+                5: {
+                    title: 'Aile (Famiglia)',
+                    description: 'Aile üyeleri - Membri della famiglia',
+                    content: [
+                        {turkish: 'Anne', italian: 'Madre', pronunciation: 'an-NE'},
+                        {turkish: 'Baba', italian: 'Padre', pronunciation: 'ba-BA'},
+                        {turkish: 'Kardeş', italian: 'Fratello/Sorella', pronunciation: 'kar-DEŞ'},
+                        {turkish: 'Ağabey', italian: 'Fratello maggiore', pronunciation: 'a-ğa-BEY'},
+                        {turkish: 'Abla', italian: 'Sorella maggiore', pronunciation: 'ab-LA'},
+                        {turkish: 'Kardeş (erkek)', italian: 'Fratello minore', pronunciation: 'kar-DEŞ'},
+                        {turkish: 'Kardeş (kız)', italian: 'Sorella minore', pronunciation: 'kar-DEŞ'},
+                        {turkish: 'Büyükanne', italian: 'Nonna', pronunciation: 'bü-yük-an-NE'},
+                        {turkish: 'Büyükbaba', italian: 'Nonno', pronunciation: 'bü-yük-ba-BA'},
+                        {turkish: 'Çocuk', italian: 'Bambino', pronunciation: 'ço-CUK'},
+                        {turkish: 'Oğul', italian: 'Figlio', pronunciation: 'o-ĞUL'},
+                        {turkish: 'Kız', italian: 'Figlia', pronunciation: 'KIZ'},
+                        {turkish: 'Eş', italian: 'Coniuge', pronunciation: 'EŞ'},
+                        {turkish: 'Aile', italian: 'Famiglia', pronunciation: 'a-i-LE'}
+                    ]
+                },
+                6: {
+                    title: 'Yemekler (Cibo)',
+                    description: 'Temel yiyecek ve içecekler - Cibi e bevande di base',
+                    content: [
+                        {turkish: 'Ekmek', italian: 'Pane', pronunciation: 'ek-MEK'},
+                        {turkish: 'Su', italian: 'Acqua', pronunciation: 'SU'},
+                        {turkish: 'Çay', italian: 'Tè', pronunciation: 'ÇAY'},
+                        {turkish: 'Kahve', italian: 'Caffè', pronunciation: 'kah-VE'},
+                        {turkish: 'Et', italian: 'Carne', pronunciation: 'ET'},
+                        {turkish: 'Balık', italian: 'Pesce', pronunciation: 'ba-LIK'},
+                        {turkish: 'Tavuk', italian: 'Pollo', pronunciation: 'ta-VUK'},
+                        {turkish: 'Meyve', italian: 'Frutta', pronunciation: 'mey-VE'},
+                        {turkish: 'Sebze', italian: 'Verdura', pronunciation: 'seb-ZE'},
+                        {turkish: 'Elma', italian: 'Mela', pronunciation: 'el-MA'},
+                        {turkish: 'Portakal', italian: 'Arancia', pronunciation: 'por-ta-KAL'},
+                        {turkish: 'Domates', italian: 'Pomodoro', pronunciation: 'do-ma-TES'},
+                        {turkish: 'Peynir', italian: 'Formaggio', pronunciation: 'pey-NIR'},
+                        {turkish: 'Yoğurt', italian: 'Yogurt', pronunciation: 'yo-ĞURT'},
+                        {turkish: 'Pilav', italian: 'Riso', pronunciation: 'pi-LAV'},
+                        {turkish: 'Makarna', italian: 'Pasta', pronunciation: 'ma-kar-NA'}
+                    ]
+                },
+                7: {
+                    title: 'Zaman (Tempo)',
+                    description: 'Zaman ifadeleri - Espressioni di tempo',
+                    content: [
+                        {turkish: 'Bugün', italian: 'Oggi', pronunciation: 'bu-GÜN'},
+                        {turkish: 'Yarın', italian: 'Domani', pronunciation: 'ya-RIN'},
+                        {turkish: 'Dün', italian: 'Ieri', pronunciation: 'DÜN'},
+                        {turkish: 'Şimdi', italian: 'Adesso', pronunciation: 'şim-DI'},
+                        {turkish: 'Sonra', italian: 'Dopo', pronunciation: 'son-RA'},
+                        {turkish: 'Önce', italian: 'Prima', pronunciation: 'ön-CE'},
+                        {turkish: 'Saat', italian: 'Ora', pronunciation: 'sa-AT'},
+                        {turkish: 'Dakika', italian: 'Minuto', pronunciation: 'da-ki-KA'},
+                        {turkish: 'Saniye', italian: 'Secondo', pronunciation: 'sa-ni-YE'},
+                        {turkish: 'Hafta', italian: 'Settimana', pronunciation: 'haf-TA'},
+                        {turkish: 'Ay', italian: 'Mese', pronunciation: 'AY'},
+                        {turkish: 'Yıl', italian: 'Anno', pronunciation: 'YIL'},
+                        {turkish: 'Sabah', italian: 'Mattina', pronunciation: 'sa-BAH'},
+                        {turkish: 'Öğle', italian: 'Mezzogiorno', pronunciation: 'öğ-LE'},
+                        {turkish: 'Akşam', italian: 'Sera', pronunciation: 'ak-ŞAM'},
+                        {turkish: 'Gece', italian: 'Notte', pronunciation: 'ge-CE'}
+                    ]
+                },
+                8: {
+                    title: 'Fiiller (Verbi)',
+                    description: 'Temel fiiller - Verbi essenziali',
+                    content: [
+                        {turkish: 'Gelmek', italian: 'Venire', pronunciation: 'gel-MEK'},
+                        {turkish: 'Gitmek', italian: 'Andare', pronunciation: 'git-MEK'},
+                        {turkish: 'Yapmak', italian: 'Fare', pronunciation: 'yap-MAK'},
+                        {turkish: 'Olmak', italian: 'Essere/Diventare', pronunciation: 'ol-MAK'},
+                        {turkish: 'Vermek', italian: 'Dare', pronunciation: 'ver-MEK'},
+                        {turkish: 'Almak', italian: 'Prendere', pronunciation: 'al-MAK'},
+                        {turkish: 'Yemek', italian: 'Mangiare', pronunciation: 'ye-MEK'},
+                        {turkish: 'İçmek', italian: 'Bere', pronunciation: 'iç-MEK'},
+                        {turkish: 'Görmek', italian: 'Vedere', pronunciation: 'gör-MEK'},
+                        {turkish: 'Duymak', italian: 'Sentire', pronunciation: 'duy-MAK'},
+                        {turkish: 'Konuşmak', italian: 'Parlare', pronunciation: 'ko-nuş-MAK'},
+                        {turkish: 'Dinlemek', italian: 'Ascoltare', pronunciation: 'din-le-MEK'},
+                        {turkish: 'Okumak', italian: 'Leggere', pronunciation: 'o-ku-MAK'},
+                        {turkish: 'Yazmak', italian: 'Scrivere', pronunciation: 'yaz-MAK'},
+                        {turkish: 'Çalışmak', italian: 'Lavorare/Studiare', pronunciation: 'ça-lış-MAK'},
+                        {turkish: 'Uyumak', italian: 'Dormire', pronunciation: 'u-yu-MAK'}
+                    ]
+                }
+            };
+
+            const lesson = lessons[lessonNumber];
+            if (lesson) {
+                showLessonContent(lesson.title, lesson.description, lesson.content, lessonNumber);
             } else {
-                alert(`🎉 おめでとうございます！すべてのレッスンが利用可能です。レッスン${lessonNumber}を選択しました！`);
+                alert(`🎉 Tebrikler! Ders ${lessonNumber} mevcut ve açık!`);
             }
         }
 
-        function showLessonContent(title, description, characters) {
+        function showLessonContent(title, description, content, lessonNumber) {
             // Create lesson modal
             const modal = document.createElement('div');
             modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            
+            let contentHTML = '';
+            if (lessonNumber === 1) {
+                // Alphabet layout
+                contentHTML = content.map(item => `
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 text-center card-hover">
+                        <div class="text-4xl font-bold mb-2 text-red-600">${item.letter}</div>
+                        <div class="pronunciation-badge rounded-full px-3 py-1 mb-3 inline-block">
+                            <span class="font-bold text-amber-800">${item.sound}</span>
+                        </div>
+                        <div class="text-gray-600 text-sm">${item.example}</div>
+                    </div>
+                `).join('');
+            } else if (lessonNumber === 4) {
+                // Colors layout
+                contentHTML = content.map(item => `
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 text-center card-hover">
+                        <div class="w-16 h-16 rounded-full mx-auto mb-3 border-4 border-white shadow-lg" style="background-color: ${item.color}"></div>
+                        <div class="text-xl font-bold mb-2 text-red-600">${item.turkish}</div>
+                        <div class="pronunciation-badge rounded-full px-3 py-1 mb-2 inline-block">
+                            <span class="font-bold text-amber-800">${item.pronunciation}</span>
+                        </div>
+                        <div class="text-gray-600 text-sm">${item.italian}</div>
+                    </div>
+                `).join('');
+            } else if (lessonNumber === 3) {
+                // Numbers layout
+                contentHTML = content.map(item => `
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 text-center card-hover">
+                        <div class="text-3xl font-bold mb-2 text-red-600">${item.number}</div>
+                        <div class="text-xl font-bold mb-2">${item.turkish}</div>
+                        <div class="pronunciation-badge rounded-full px-3 py-1 mb-2 inline-block">
+                            <span class="font-bold text-amber-800">${item.pronunciation}</span>
+                        </div>
+                        <div class="text-gray-600 text-sm">${item.italian}</div>
+                    </div>
+                `).join('');
+            } else {
+                // Standard layout for other lessons
+                contentHTML = content.map(item => `
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 text-center card-hover">
+                        <div class="text-2xl font-bold mb-2 text-red-600">${item.turkish}</div>
+                        <div class="pronunciation-badge rounded-full px-3 py-1 mb-3 inline-block">
+                            <span class="font-bold text-amber-800">${item.pronunciation}</span>
+                        </div>
+                        <div class="text-gray-600 text-sm">${item.italian}</div>
+                    </div>
+                `).join('');
+            }
+
             modal.innerHTML = `
-                <div class="bg-white rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="bg-white rounded-2xl p-8 max-w-6xl w-full max-h-[90vh] overflow-y-auto">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-3xl font-bold text-gray-800">${title}</h2>
                         <button onclick="closeLessonModal()" class="text-gray-500 hover:text-gray-700 text-2xl">✕</button>
                     </div>
                     
-                    <p class="text-gray-600 mb-8 japanese-text">${description}</p>
+                    <p class="text-gray-600 mb-8">${description}</p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                        ${characters.map(char => `
-                            <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 text-center card-hover">
-                                <div class="text-4xl japanese-text mb-2 text-red-600">${char.char}</div>
-                                <div class="transliteration-badge rounded-full px-3 py-1 mb-3 inline-block">
-                                    <span class="romaji-text font-bold text-amber-800">${char.romaji}</span>
-                                </div>
-                                <div class="text-lg font-bold mb-2">${char.sound}</div>
-                                <div class="text-gray-600 japanese-text text-sm">${char.example}</div>
-                            </div>
-                        `).join('')}
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
+                        ${contentHTML}
                     </div>
                     
                     <div class="flex gap-4 justify-center">
                         <button onclick="startLessonQuiz('${title}')" class="bg-gradient-to-r from-red-600 to-pink-500 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
-                            🎯 <span class="japanese-text">テスト</span> <span class="romaji-text text-sm">(Tesuto)</span>
+                            🎯 Test Yap (Fai il Test)
                         </button>
                         <button onclick="closeLessonModal()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-xl font-medium hover:bg-gray-300 transition-all">
-                            ✓ <span class="japanese-text">完了</span> <span class="romaji-text text-sm">(Kanryō)</span>
+                            ✓ Tamamlandı (Completato)
                         </button>
                     </div>
                 </div>
@@ -765,57 +910,55 @@
         function startLessonQuiz(lessonTitle) {
             closeLessonModal();
             showSection('exercises');
-            alert(`🎯 素晴らしい！${lessonTitle}のテストを試してみましょう。練習セクションに行って学んだことをテストしてください！`);
+            alert(`🎯 Harika! ${lessonTitle} testini deneyelim. Alıştırma bölümüne gidip öğrendiklerinizi test edin!`);
         }
 
         // Exercise functions
         let currentExercise = {
-            character: 'あ',
-            correctAnswer: 'a',
-            characters: [
-                {char: 'あ', answer: 'a', sound: 'A', romaji: 'a'},
-                {char: 'い', answer: 'i', sound: 'I', romaji: 'i'},
-                {char: 'う', answer: 'u', sound: 'U', romaji: 'u'},
-                {char: 'え', answer: 'e', sound: 'E', romaji: 'e'},
-                {char: 'お', answer: 'o', sound: 'O', romaji: 'o'},
-                {char: 'か', answer: 'ka', sound: 'KA', romaji: 'ka'},
-                {char: 'き', answer: 'ki', sound: 'KI', romaji: 'ki'},
-                {char: 'く', answer: 'ku', sound: 'KU', romaji: 'ku'}
+            words: [
+                {turkish: 'Merhaba', correct: 'ciao', pronunciation: 'mer-ha-BA'},
+                {turkish: 'Teşekkürler', correct: 'grazie', pronunciation: 'te-şek-kür-LER'},
+                {turkish: 'Su', correct: 'acqua', pronunciation: 'SU'},
+                {turkish: 'Ekmek', correct: 'pane', pronunciation: 'ek-MEK'},
+                {turkish: 'Anne', correct: 'madre', pronunciation: 'an-NE'},
+                {turkish: 'Baba', correct: 'padre', pronunciation: 'ba-BA'},
+                {turkish: 'Kırmızı', correct: 'rosso', pronunciation: 'kır-mı-ZI'},
+                {turkish: 'Mavi', correct: 'blu', pronunciation: 'ma-VI'}
             ],
             currentIndex: 0
         };
 
         function startExercise(type) {
-            if (type === 'matching') {
+            if (type === 'vocabulary') {
                 document.getElementById('exercises-section').scrollIntoView({behavior: 'smooth'});
                 document.getElementById('exercise-area').scrollIntoView({behavior: 'smooth'});
             } else {
-                alert(`🎵 発音練習！実際のアプリでは、マイクを使って日本語の文字の発音を練習できます。`);
+                alert(`🎵 Telaffuz pratiği! Gerçek uygulamada mikrofon kullanarak Türkçe kelimelerin telaffuzunu pratik edebilirsiniz.`);
             }
         }
 
         function checkAnswer(answer) {
             const feedback = document.getElementById('exercise-feedback');
-            const character = currentExercise.characters[currentExercise.currentIndex];
+            const word = currentExercise.words[currentExercise.currentIndex];
             
-            if (answer === character.answer) {
+            if (answer === word.correct) {
                 feedback.innerHTML = `
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-4 bounce-in">
-                        <strong class="japanese-text">正解！ 🎉</strong> <span class="japanese-text">${character.char}</span> si pronuncia "${character.sound}" <span class="romaji-text">(${character.romaji})</span>
-                        <br><span class="romaji-text text-sm">(Seikai! "${character.romaji}" wa "${character.sound}" to yomimasu)</span>
+                        <strong>Doğru! 🎉</strong> "${word.turkish}" significa "${word.correct}" in italiano
+                        <br><span class="text-sm">(Corretto! "${word.turkish}" vuol dire "${word.correct}")</span>
                     </div>
                     <button onclick="nextExercise()" class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
-                        <span class="japanese-text">次の問題</span> → <span class="romaji-text text-sm">(Tsugi no mondai)</span>
+                        Sonraki Soru → (Prossima Domanda)
                     </button>
                 `;
             } else {
                 feedback.innerHTML = `
                     <div class="bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded-xl mb-4 bounce-in">
-                        <strong class="japanese-text">もう一度試してください！ 🤔</strong> <span class="japanese-text">${character.char}</span> non si pronuncia così...
-                        <br><span class="romaji-text text-sm">(Mō ichido tameshite kudasai! "${character.char}" wa sō yomimasen...)</span>
+                        <strong>Tekrar deneyin! 🤔</strong> "${word.turkish}" non significa "${answer}"...
+                        <br><span class="text-sm">(Riprova! "${word.turkish}" non vuol dire "${answer}"...)</span>
                     </div>
                     <button onclick="nextExercise()" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
-                        <span class="japanese-text">答えを見る</span> <span class="romaji-text text-sm">(Kotae wo miru)</span>
+                        Cevabı Göster (Mostra Risposta)
                     </button>
                 `;
             }
@@ -830,11 +973,11 @@
         }
 
         function nextExercise() {
-            currentExercise.currentIndex = (currentExercise.currentIndex + 1) % currentExercise.characters.length;
-            const character = currentExercise.characters[currentExercise.currentIndex];
+            currentExercise.currentIndex = (currentExercise.currentIndex + 1) % currentExercise.words.length;
+            const word = currentExercise.words[currentExercise.currentIndex];
             
-            document.getElementById('exercise-character').textContent = character.char;
-            document.getElementById('exercise-romaji').textContent = character.romaji;
+            document.getElementById('exercise-word').textContent = word.turkish;
+            document.getElementById('exercise-pronunciation').textContent = word.pronunciation;
             document.getElementById('exercise-feedback').classList.add('hidden');
             
             // Re-enable option buttons
@@ -846,17 +989,8 @@
 
         // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
-            // Add some interactive animations
-            setInterval(() => {
-                const progressBar = document.getElementById('progress-bar');
-                const currentWidth = parseInt(progressBar.style.width);
-                if (currentWidth < 100) {
-                    const newWidth = Math.min(currentWidth + Math.random() * 2, 100);
-                    progressBar.style.width = newWidth + '%';
-                    document.getElementById('progress-percent').textContent = Math.round(newWidth) + '%';
-                }
-            }, 9000);
+            console.log('🇹🇷 Türkçe öğrenme uygulaması yüklendi! Tüm içerik açık!');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970ac287f3094c4e',t:'MTc1NTQ1MDM2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970ad08947e4c99e',t:'MTc1NTQ1MDkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
