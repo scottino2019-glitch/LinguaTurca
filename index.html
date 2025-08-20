@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
-<html lang="it" dir="ltr">
+
+<html dir="ltr" lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇹🇷 Türkçe Öğren - Impara il Turco</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>🇹🇷 Türkçe Öğren - Impara il Turco</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         body {
@@ -87,520 +89,480 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-red-50 to-pink-50 min-h-screen">
-    <div id="app" class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="text-center mb-12">
-            <div class="gradient-bg text-white rounded-3xl p-8 mb-8 relative overflow-hidden turkish-pattern">
-                <div class="absolute top-4 right-4 text-4xl floating-element golden-text">🌙</div>
-                <div class="absolute bottom-4 left-4 text-3xl floating-element golden-text" style="animation-delay: -2s;">🕌</div>
-                <div class="absolute top-4 left-4 text-2xl floating-element golden-text" style="animation-delay: -1s;">🧿</div>
-                <h1 class="text-5xl font-bold mb-4 header-title">🇹🇷 Türkçe Öğren</h1>
-                <p class="text-xl opacity-95 header-title font-medium">Impara il Turco con Lezioni Complete</p>
-                <p class="text-base opacity-85 mt-3 header-title">Merhaba! Hoş geldiniz!</p>
-                <p class="text-sm opacity-75 mt-1 header-title">(Ciao! Benvenuti!)</p>
-                <div class="unlocked-badge rounded-full px-4 py-2 mt-4 inline-block">
-                    <span class="font-bold">Türk dili</span>
-                </div>
-            </div>
-        </header>
-
-        <!-- Navigation -->
-        <nav class="flex justify-center mb-8">
-            <div class="bg-white rounded-full p-2 shadow-lg">
-                <button onclick="showSection('home')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-red-600 text-white">
+<div class="container mx-auto px-4 py-8" id="app">
+<!-- Header -->
+<header class="text-center mb-12">
+<div class="gradient-bg text-white rounded-3xl p-8 mb-8 relative overflow-hidden turkish-pattern">
+<div class="absolute top-4 right-4 text-4xl floating-element golden-text">🌙</div>
+<div class="absolute bottom-4 left-4 text-3xl floating-element golden-text" style="animation-delay: -2s;">🕌</div>
+<div class="absolute top-4 left-4 text-2xl floating-element golden-text" style="animation-delay: -1s;">🧿</div>
+<h1 class="text-5xl font-bold mb-4 header-title">🇹🇷 Türkçe Öğren</h1>
+<p class="text-xl opacity-95 header-title font-medium">Impara il Turco con Lezioni Complete</p>
+<p class="text-base opacity-85 mt-3 header-title">Merhaba! Hoş geldiniz!</p>
+<p class="text-sm opacity-75 mt-1 header-title">(Ciao! Benvenuti!)</p>
+<div class="unlocked-badge rounded-full px-4 py-2 mt-4 inline-block">
+<span class="font-bold">Türk dili</span>
+</div>
+</div>
+</header>
+<!-- Navigation -->
+<nav class="flex justify-center mb-8">
+<div class="bg-white rounded-full p-2 shadow-lg">
+<button class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 bg-red-600 text-white" onclick="showSection('home')">
                     🏠 Ana Sayfa
                 </button>
-                <button onclick="showSection('lessons')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100">
+<button class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100" onclick="showSection('lessons')">
                     📚 Dersler
                 </button>
-                <button onclick="showSection('exercises')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100">
+<button class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100" onclick="showSection('exercises')">
                     🎯 Alıştırmalar
                 </button>
-                <button onclick="showSection('progress')" class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100">
+<button class="nav-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-red-100" onclick="showSection('progress')">
                     📊 İlerleme
                 </button>
-            </div>
-        </nav>
-
-        <!-- Home Section -->
-        <div id="home-section" class="section">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Quick Start Card -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                    <div class="text-4xl mb-4">🚀</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Hemen Başla</h3>
-                    <p class="text-sm text-gray-500 mb-2">(Inizia Subito)</p>
-                    <p class="text-gray-600 mb-4">Türk alfabesini öğren</p>
-                    <p class="text-xs text-gray-500 mb-4">(Impara l'alfabeto turco)</p>
-                    <button onclick="startLesson(1)" class="bg-gradient-to-r from-red-600 to-red-500 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all">
+</div>
+</nav>
+<!-- Home Section -->
+<div class="section" id="home-section">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+<!-- Quick Start Card -->
+<div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+<div class="text-4xl mb-4">🚀</div>
+<h3 class="text-xl font-bold mb-2 text-gray-800">Hemen Başla</h3>
+<p class="text-sm text-gray-500 mb-2">(Inizia Subito)</p>
+<p class="text-gray-600 mb-4">Türk alfabesini öğren</p>
+<p class="text-xs text-gray-500 mb-4">(Impara l'alfabeto turco)</p>
+<button class="bg-gradient-to-r from-red-600 to-red-500 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all" onclick="startLesson(1)">
                         Başla (Inizia)
                     </button>
-                </div>
-
-                <!-- Progress Card -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                    <div class="text-4xl mb-4">📈</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">İlerleme Durumu</h3>
-                    <p class="text-sm text-gray-500 mb-2">(Stato dei Progressi)</p>
-                    <div class="mb-4">
-                        <div class="flex justify-between text-sm text-gray-600 mb-1">
-                            <span>Tamamlandı</span>
-                            <span id="progress-percent">100%</span>
-                        </div>
-                        <div class="bg-gray-200 rounded-full h-2">
-                            <div id="progress-bar" class="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600">Tüm dersler açık!</p>
-                    <p class="text-xs text-gray-500">(Tutte le lezioni disponibili!)</p>
-                </div>
-
-                <!-- Daily Goal Card -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
-                    <div class="text-4xl mb-4">🎯</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Günlük Hedef</h3>
-                    <p class="text-sm text-gray-500 mb-2">(Obiettivo Giornaliero)</p>
-                    <p class="text-gray-600 mb-4">30 dakika çalışma</p>
-                    <p class="text-xs text-gray-500 mb-4">(30 minuti di studio)</p>
-                    <div class="flex items-center">
-                        <div class="bg-yellow-400 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold mr-2">∞</div>
-                        <span class="text-sm text-gray-600">Sınırsız erişim! 🔥</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Featured Lessons -->
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-2xl font-bold mb-6 text-gray-800">Önerilen Dersler</h2>
-                <p class="text-sm text-gray-500 mb-6">(Lezioni Consigliate)</p>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="border-2 border-red-200 rounded-xl p-6 hover:border-red-400 transition-all cursor-pointer" onclick="startLesson(1)">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-red-100 rounded-full p-3 mr-4">
-                                <span class="text-2xl">Aa</span>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Türk Alfabesi</h3>
-                                <p class="text-sm text-red-600 mb-1">(Alfabeto Turco)</p>
-                                <p class="text-gray-600 text-sm">29 harfli Türk alfabesini öğren</p>
-                                <p class="text-xs text-gray-500">(Impara l'alfabeto turco di 29 lettere)</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
-                            <span class="text-red-600 font-medium">25 dk</span>
-                        </div>
-                    </div>
-
-                    <div class="border-2 border-pink-200 rounded-xl p-6 hover:border-pink-400 transition-all cursor-pointer" onclick="startLesson(2)">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-pink-100 rounded-full p-3 mr-4">
-                                <span class="text-2xl">👋</span>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Selamlaşma</h3>
-                                <p class="text-sm text-pink-600 mb-1">(Saluti)</p>
-                                <p class="text-gray-600 text-sm">Temel selamlaşma ifadeleri</p>
-                                <p class="text-xs text-gray-500">(Espressioni di saluto di base)</p>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
-                            <span class="text-pink-600 font-medium">20 dk</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Lessons Section -->
-        <div id="lessons-section" class="section hidden">
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">📚 Türkçe Dersleri</h2>
-                <p class="text-center text-gray-500 mb-8">(Lezioni di Turco)</p>
-                
-                <div class="grid gap-6">
-                    <!-- Lesson 1 -->
-                    <div class="border-2 border-red-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(1)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">1</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Türk Alfabesi - Alfabeto Turco</h3>
-                                    <p class="text-gray-600">A, B, C, Ç, D, E, F, G, Ğ, H, I, İ, J, K, L, M, N, O, Ö, P, R, S, Ş, T, U, Ü, V, Y, Z</p>
-                                    <p class="text-sm text-gray-500">29 lettere dell'alfabeto turco con pronuncia</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-red-600 font-medium">25 dk</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lesson 2 -->
-                    <div class="border-2 border-pink-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(2)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">2</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Selamlaşma - Saluti</h3>
-                                    <p class="text-gray-600">Merhaba, Günaydın, İyi akşamlar, Hoş geldiniz, Teşekkürler</p>
-                                    <p class="text-sm text-gray-500">Saluti e espressioni di cortesia essenziali</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-pink-600 font-medium">20 dk</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lesson 3 -->
-                    <div class="border-2 border-purple-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(3)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">3</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Sayılar - Numeri</h3>
-                                    <p class="text-gray-600">Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz, On</p>
-                                    <p class="text-sm text-gray-500">Numeri da 1 a 100 in turco</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-purple-600 font-medium">30 dk</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lesson 4 -->
-                    <div class="border-2 border-blue-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(4)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">4</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Renkler - Colori</h3>
-                                    <p class="text-gray-600">Kırmızı, Mavi, Sarı, Yeşil, Siyah, Beyaz, Pembe, Mor</p>
-                                    <p class="text-sm text-gray-500">Tutti i colori principali in turco</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-blue-600 font-medium">18 dk</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lesson 5 -->
-                    <div class="border-2 border-green-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(5)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">5</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Aile - Famiglia</h3>
-                                    <p class="text-gray-600">Anne, Baba, Kardeş, Büyükanne, Büyükbaba, Çocuk</p>
-                                    <p class="text-sm text-gray-500">Membri della famiglia e relazioni</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-green-600 font-medium">25 dk</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lesson 6 -->
-                    <div class="border-2 border-orange-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(6)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-orange-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">6</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Yemekler - Cibo</h3>
-                                    <p class="text-gray-600">Ekmek, Su, Çay, Kahve, Et, Balık, Meyve, Sebze</p>
-                                    <p class="text-sm text-gray-500">Cibi e bevande essenziali</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-orange-600 font-medium">22 dk</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lesson 7 -->
-                    <div class="border-2 border-indigo-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(7)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-indigo-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">7</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Zaman - Tempo</h3>
-                                    <p class="text-gray-600">Bugün, Yarın, Dün, Saat, Dakika, Hafta, Ay, Yıl</p>
-                                    <p class="text-sm text-gray-500">Espressioni di tempo e calendario</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-indigo-600 font-medium">28 dk</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lesson 8 -->
-                    <div class="border-2 border-teal-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(8)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="bg-teal-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">8</div>
-                                <div>
-                                    <h3 class="text-xl font-bold">Fiiller - Verbi</h3>
-                                    <p class="text-gray-600">Gelmek, Gitmek, Yapmak, Olmak, Vermek, Almak</p>
-                                    <p class="text-sm text-gray-500">Verbi essenziali e coniugazioni base</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
-                                <span class="text-teal-600 font-medium">35 dk</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Exercises Section -->
-        <div id="exercises-section" class="section hidden">
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">🎯 İnteraktif Alıştırmalar</h2>
-                <p class="text-center text-gray-500 mb-8">(Esercizi Interattivi)</p>
-                
-                <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="turkish-bg rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('vocabulary')">
-                        <div class="text-4xl mb-4">📝</div>
-                        <h3 class="text-xl font-bold mb-2">Kelime Eşleştirme</h3>
-                        <p class="text-sm text-red-600 mb-2">(Abbinamento Parole)</p>
-                        <p class="text-gray-600 mb-4">Türkçe kelimeleri İtalyanca karşılıklarıyla eşleştir</p>
-                        <p class="text-xs text-gray-500 mb-4">(Abbina le parole turche con i loro equivalenti italiani)</p>
-                        <div class="flex justify-between items-center">
-                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
-                            <span class="text-red-600 font-medium">15 dk</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('pronunciation')">
-                        <div class="text-4xl mb-4">🎵</div>
-                        <h3 class="text-xl font-bold mb-2">Telaffuz Pratiği</h3>
-                        <p class="text-sm text-pink-600 mb-2">(Pratica di Pronuncia)</p>
-                        <p class="text-gray-600 mb-4">Türkçe sesleri dinle ve tekrarla</p>
-                        <p class="text-xs text-gray-500 mb-4">(Ascolta e ripeti i suoni turchi)</p>
-                        <div class="flex justify-between items-center">
-                            <span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
-                            <span class="text-pink-600 font-medium">20 dk</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sample Exercise -->
-                <div id="exercise-area" class="bg-gray-50 rounded-xl p-8">
-                    <div class="text-center">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-800">Alıştırma: Kelime Tanıma</h3>
-                        <p class="text-sm text-gray-500 mb-6">(Esercizio: Riconoscimento Parole)</p>
-                        <div class="bg-white rounded-xl p-8 mb-6 shadow-inner">
-                            <div class="text-6xl mb-4 pulse-animation text-red-600" id="exercise-word">Merhaba</div>
-                            <div class="pronunciation-badge rounded-full px-4 py-2 mb-6 inline-block">
-                                <span class="font-bold text-amber-800" id="exercise-pronunciation">mer-ha-BA</span>
-                            </div>
-                            <p class="text-lg text-gray-600 mb-8">Bu Türkçe kelime ne anlama geliyor?</p>
-                            <p class="text-sm text-gray-500 mb-8">(Cosa significa questa parola turca?)</p>
-                            
-                            <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                                <button onclick="checkAnswer('ciao')" class="exercise-option bg-red-100 hover:bg-red-200 text-red-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    Ciao
-                                </button>
-                                <button onclick="checkAnswer('grazie')" class="exercise-option bg-blue-100 hover:bg-blue-200 text-blue-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    Grazie
-                                </button>
-                                <button onclick="checkAnswer('arrivederci')" class="exercise-option bg-green-100 hover:bg-green-200 text-green-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    Arrivederci
-                                </button>
-                                <button onclick="checkAnswer('prego')" class="exercise-option bg-purple-100 hover:bg-purple-200 text-purple-800 py-4 px-6 rounded-xl font-medium transition-all">
-                                    Prego
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div id="exercise-feedback" class="hidden">
-                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-4">
-                                <strong>Doğru! 🎉</strong> "Merhaba" significa "Ciao" in italiano
-                                <br><span class="text-sm">(Corretto! "Merhaba" vuol dire "Ciao")</span>
-                            </div>
-                            <button onclick="nextExercise()" class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
+</div>
+<!-- Progress Card -->
+<div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+<div class="text-4xl mb-4">📈</div>
+<h3 class="text-xl font-bold mb-2 text-gray-800">İlerleme Durumu</h3>
+<p class="text-sm text-gray-500 mb-2">(Stato dei Progressi)</p>
+<div class="mb-4">
+<div class="flex justify-between text-sm text-gray-600 mb-1">
+<span>Tamamlandı</span>
+<span id="progress-percent">100%</span>
+</div>
+<div class="bg-gray-200 rounded-full h-2">
+<div class="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" id="progress-bar" style="width: 100%"></div>
+</div>
+</div>
+<p class="text-sm text-gray-600">Tüm dersler açık!</p>
+<p class="text-xs text-gray-500">(Tutte le lezioni disponibili!)</p>
+</div>
+<!-- Daily Goal Card -->
+<div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+<div class="text-4xl mb-4">🎯</div>
+<h3 class="text-xl font-bold mb-2 text-gray-800">Günlük Hedef</h3>
+<p class="text-sm text-gray-500 mb-2">(Obiettivo Giornaliero)</p>
+<p class="text-gray-600 mb-4">30 dakika çalışma</p>
+<p class="text-xs text-gray-500 mb-4">(30 minuti di studio)</p>
+<div class="flex items-center">
+<div class="bg-yellow-400 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold mr-2">∞</div>
+<span class="text-sm text-gray-600">Sınırsız erişim! 🔥</span>
+</div>
+</div>
+</div>
+<!-- Featured Lessons -->
+<div class="bg-white rounded-2xl p-8 shadow-lg">
+<h2 class="text-2xl font-bold mb-6 text-gray-800">Önerilen Dersler</h2>
+<p class="text-sm text-gray-500 mb-6">(Lezioni Consigliate)</p>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="border-2 border-red-200 rounded-xl p-6 hover:border-red-400 transition-all cursor-pointer" onclick="startLesson(1)">
+<div class="flex items-center mb-4">
+<div class="bg-red-100 rounded-full p-3 mr-4">
+<span class="text-2xl">Aa</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Türk Alfabesi</h3>
+<p class="text-sm text-red-600 mb-1">(Alfabeto Turco)</p>
+<p class="text-gray-600 text-sm">29 harfli Türk alfabesini öğren</p>
+<p class="text-xs text-gray-500">(Impara l'alfabeto turco di 29 lettere)</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
+<span class="text-red-600 font-medium">25 dk</span>
+</div>
+</div>
+<div class="border-2 border-pink-200 rounded-xl p-6 hover:border-pink-400 transition-all cursor-pointer" onclick="startLesson(2)">
+<div class="flex items-center mb-4">
+<div class="bg-pink-100 rounded-full p-3 mr-4">
+<span class="text-2xl">👋</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Selamlaşma</h3>
+<p class="text-sm text-pink-600 mb-1">(Saluti)</p>
+<p class="text-gray-600 text-sm">Temel selamlaşma ifadeleri</p>
+<p class="text-xs text-gray-500">(Espressioni di saluto di base)</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
+<span class="text-pink-600 font-medium">20 dk</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Lessons Section -->
+<div class="section hidden" id="lessons-section">
+<div class="bg-white rounded-2xl p-8 shadow-lg">
+<h2 class="text-3xl font-bold mb-4 text-center text-gray-800">📚 Türkçe Dersleri</h2>
+<p class="text-center text-gray-500 mb-8">(Lezioni di Turco)</p>
+<div class="grid gap-6">
+<!-- Lesson 1 -->
+<div class="border-2 border-red-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(1)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">1</div>
+<div>
+<h3 class="text-xl font-bold">Türk Alfabesi - Alfabeto Turco</h3>
+<p class="text-gray-600">A, B, C, Ç, D, E, F, G, Ğ, H, I, İ, J, K, L, M, N, O, Ö, P, R, S, Ş, T, U, Ü, V, Y, Z</p>
+<p class="text-sm text-gray-500">29 lettere dell'alfabeto turco con pronuncia</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-red-600 font-medium">25 dk</span>
+</div>
+</div>
+</div>
+<!-- Lesson 2 -->
+<div class="border-2 border-pink-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(2)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">2</div>
+<div>
+<h3 class="text-xl font-bold">Selamlaşma - Saluti</h3>
+<p class="text-gray-600">Merhaba, Günaydın, İyi akşamlar, Hoş geldiniz, Teşekkürler</p>
+<p class="text-sm text-gray-500">Saluti e espressioni di cortesia essenziali</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-pink-600 font-medium">20 dk</span>
+</div>
+</div>
+</div>
+<!-- Lesson 3 -->
+<div class="border-2 border-purple-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(3)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">3</div>
+<div>
+<h3 class="text-xl font-bold">Sayılar - Numeri</h3>
+<p class="text-gray-600">Bir, İki, Üç, Dört, Beş, Altı, Yedi, Sekiz, Dokuz, On</p>
+<p class="text-sm text-gray-500">Numeri da 1 a 100 in turco</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-purple-600 font-medium">30 dk</span>
+</div>
+</div>
+</div>
+<!-- Lesson 4 -->
+<div class="border-2 border-blue-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(4)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">4</div>
+<div>
+<h3 class="text-xl font-bold">Renkler - Colori</h3>
+<p class="text-gray-600">Kırmızı, Mavi, Sarı, Yeşil, Siyah, Beyaz, Pembe, Mor</p>
+<p class="text-sm text-gray-500">Tutti i colori principali in turco</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-blue-600 font-medium">18 dk</span>
+</div>
+</div>
+</div>
+<!-- Lesson 5 -->
+<div class="border-2 border-green-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(5)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">5</div>
+<div>
+<h3 class="text-xl font-bold">Aile - Famiglia</h3>
+<p class="text-gray-600">Anne, Baba, Kardeş, Büyükanne, Büyükbaba, Çocuk</p>
+<p class="text-sm text-gray-500">Membri della famiglia e relazioni</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-green-600 font-medium">25 dk</span>
+</div>
+</div>
+</div>
+<!-- Lesson 6 -->
+<div class="border-2 border-orange-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(6)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-orange-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">6</div>
+<div>
+<h3 class="text-xl font-bold">Yemekler - Cibo</h3>
+<p class="text-gray-600">Ekmek, Su, Çay, Kahve, Et, Balık, Meyve, Sebze</p>
+<p class="text-sm text-gray-500">Cibi e bevande essenziali</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-orange-600 font-medium">22 dk</span>
+</div>
+</div>
+</div>
+<!-- Lesson 7 -->
+<div class="border-2 border-indigo-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(7)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-indigo-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">7</div>
+<div>
+<h3 class="text-xl font-bold">Zaman - Tempo</h3>
+<p class="text-gray-600">Bugün, Yarın, Dün, Saat, Dakika, Hafta, Ay, Yıl</p>
+<p class="text-sm text-gray-500">Espressioni di tempo e calendario</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-indigo-600 font-medium">28 dk</span>
+</div>
+</div>
+</div>
+<!-- Lesson 8 -->
+<div class="border-2 border-teal-200 rounded-xl p-6 card-hover cursor-pointer" onclick="startLesson(8)">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="bg-teal-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">8</div>
+<div>
+<h3 class="text-xl font-bold">Fiiller - Verbi</h3>
+<p class="text-gray-600">Gelmek, Gitmek, Yapmak, Olmak, Vermek, Almak</p>
+<p class="text-sm text-gray-500">Verbi essenziali e coniugazioni base</p>
+</div>
+</div>
+<div class="text-right">
+<div class="unlocked-badge px-3 py-1 rounded-full text-sm mb-2 font-bold"> AÇIK</div>
+<span class="text-teal-600 font-medium">35 dk</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Exercises Section -->
+<div class="section hidden" id="exercises-section">
+<div class="bg-white rounded-2xl p-8 shadow-lg">
+<h2 class="text-3xl font-bold mb-4 text-center text-gray-800">🎯 İnteraktif Alıştırmalar</h2>
+<p class="text-center text-gray-500 mb-8">(Esercizi Interattivi)</p>
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+<div class="turkish-bg rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('vocabulary')">
+<div class="text-4xl mb-4">📝</div>
+<h3 class="text-xl font-bold mb-2">Kelime Eşleştirme</h3>
+<p class="text-sm text-red-600 mb-2">(Abbinamento Parole)</p>
+<p class="text-gray-600 mb-4">Türkçe kelimeleri İtalyanca karşılıklarıyla eşleştir</p>
+<p class="text-xs text-gray-500 mb-4">(Abbina le parole turche con i loro equivalenti italiani)</p>
+<div class="flex justify-between items-center">
+<span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
+<span class="text-red-600 font-medium">15 dk</span>
+</div>
+</div>
+<div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6 card-hover cursor-pointer" onclick="startExercise('pronunciation')">
+<div class="text-4xl mb-4">🎵</div>
+<h3 class="text-xl font-bold mb-2">Telaffuz Pratiği</h3>
+<p class="text-sm text-pink-600 mb-2">(Pratica di Pronuncia)</p>
+<p class="text-gray-600 mb-4">Türkçe sesleri dinle ve tekrarla</p>
+<p class="text-xs text-gray-500 mb-4">(Ascolta e ripeti i suoni turchi)</p>
+<div class="flex justify-between items-center">
+<span class="unlocked-badge px-3 py-1 rounded-full text-sm font-bold"> AÇIK</span>
+<span class="text-pink-600 font-medium">20 dk</span>
+</div>
+</div>
+</div>
+<!-- Sample Exercise -->
+<div class="bg-gray-50 rounded-xl p-8" id="exercise-area">
+<div class="text-center">
+<h3 class="text-2xl font-bold mb-2 text-gray-800">Alıştırma: Kelime Tanıma</h3>
+<p class="text-sm text-gray-500 mb-6">(Esercizio: Riconoscimento Parole)</p>
+<div class="bg-white rounded-xl p-8 mb-6 shadow-inner">
+<div class="text-6xl mb-4 pulse-animation text-red-600" id="exercise-word">Merhaba</div>
+<div class="pronunciation-badge rounded-full px-4 py-2 mb-6 inline-block">
+<span class="font-bold text-amber-800" id="exercise-pronunciation">mer-ha-BA</span>
+</div>
+<p class="text-lg text-gray-600 mb-8">Bu Türkçe kelime ne anlama geliyor?</p>
+<p class="text-sm text-gray-500 mb-8">(Cosa significa questa parola turca?)</p>
+<div class="grid grid-cols-2 gap-4 max-w-md mx-auto" id="exercise-options"></div>
+</div>
+<div class="hidden" id="exercise-feedback">
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-4">
+<strong>Doğru! 🎉</strong> "Merhaba" significa "Ciao" in italiano
+                                <br/><span class="text-sm">(Corretto! "Merhaba" vuol dire "Ciao")</span>
+</div>
+<button class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all" onclick="nextExercise()">
                                 Sonraki Soru → (Prossima Domanda)
                             </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Progress Section -->
-        <div id="progress-section" class="section hidden">
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">📊 İlerleme Durumu</h2>
-                <p class="text-center text-gray-500 mb-8">(Stato dei Progressi)</p>
-                
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="text-center">
-                        <div class="bg-gradient-to-br from-red-600 to-red-500 text-white rounded-2xl p-6">
-                            <div class="text-3xl font-bold">8</div>
-                            <div class="text-sm opacity-90">Tamamlanan Ders</div>
-                            <div class="text-xs opacity-75">(Lezioni Completate)</div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-br from-pink-500 to-red-500 text-white rounded-2xl p-6">
-                            <div class="text-3xl font-bold">150+</div>
-                            <div class="text-sm opacity-90">Öğrenilen Kelime</div>
-                            <div class="text-xs opacity-75">(Parole Imparate)</div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl p-6">
-                            <div class="text-3xl font-bold">∞</div>
-                            <div class="text-sm opacity-90">Sınırsız Erişim</div>
-                            <div class="text-xs opacity-75">(Accesso Illimitato)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Alphabet Progress -->
-                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold mb-2 text-red-700">Alfabe İlerlemesi</h3>
-                        <p class="text-sm text-red-600 mb-4">(Progresso Alfabeto)</p>
-                        <div class="grid grid-cols-6 gap-2 mb-4">
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">A</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">B</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">C</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">Ç</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">D</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">E</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-6 gap-2 mb-4">
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">F</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">G</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">Ğ</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">H</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">I</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                            <div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
-                                <div class="text-lg font-bold">İ</div>
-                                <div class="text-xs text-red-700">✓</div>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600">29 harfin tamamı öğrenildi!</p>
-                        <p class="text-xs text-gray-500">(Tutte le 29 lettere imparate!)</p>
-                    </div>
-
-                    <!-- Vocabulary Progress -->
-                    <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold mb-2 text-pink-700">Kelime Dağarcığı</h3>
-                        <p class="text-sm text-pink-600 mb-4">(Vocabolario)</p>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm">Selamlaşma</span>
-                                <div class="flex items-center">
-                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
-                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
-                                    </div>
-                                    <span class="text-xs text-green-600">15/15</span>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm">Sayılar</span>
-                                <div class="flex items-center">
-                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
-                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
-                                    </div>
-                                    <span class="text-xs text-green-600">20/20</span>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm">Renkler</span>
-                                <div class="flex items-center">
-                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
-                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
-                                    </div>
-                                    <span class="text-xs text-green-600">12/12</span>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm">Aile</span>
-                                <div class="flex items-center">
-                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
-                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
-                                    </div>
-                                    <span class="text-xs text-green-600">18/18</span>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm">Yemekler</span>
-                                <div class="flex items-center">
-                                    <div class="bg-green-200 rounded-full h-2 w-16 mr-2">
-                                        <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
-                                    </div>
-                                    <span class="text-xs text-green-600">25/25</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 mt-4">Toplam: 150+ kelime öğrenildi!</p>
-                        <p class="text-xs text-gray-500">(Totale: 150+ parole imparate!)</p>
-                    </div>
-                </div>
-                
-                <div class="mt-6 text-center">
-                    <div class="unlocked-badge rounded-full px-6 py-3 inline-block">
-                        <span class="font-bold text-lg">🎉 TÜM İÇERİK AÇIK! 🎉</span>
-                        <br>
-                        <span class="text-sm">(Tutto il contenuto è sbloccato!)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Progress Section -->
+<div class="section hidden" id="progress-section">
+<div class="bg-white rounded-2xl p-8 shadow-lg">
+<h2 class="text-3xl font-bold mb-4 text-center text-gray-800">📊 İlerleme Durumu</h2>
+<p class="text-center text-gray-500 mb-8">(Stato dei Progressi)</p>
+<div class="grid md:grid-cols-3 gap-6 mb-8">
+<div class="text-center">
+<div class="bg-gradient-to-br from-red-600 to-red-500 text-white rounded-2xl p-6">
+<div class="text-3xl font-bold">8</div>
+<div class="text-sm opacity-90">Tamamlanan Ders</div>
+<div class="text-xs opacity-75">(Lezioni Completate)</div>
+</div>
+</div>
+<div class="text-center">
+<div class="bg-gradient-to-br from-pink-500 to-red-500 text-white rounded-2xl p-6">
+<div class="text-3xl font-bold">150+</div>
+<div class="text-sm opacity-90">Öğrenilen Kelime</div>
+<div class="text-xs opacity-75">(Parole Imparate)</div>
+</div>
+</div>
+<div class="text-center">
+<div class="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl p-6">
+<div class="text-3xl font-bold">∞</div>
+<div class="text-sm opacity-90">Sınırsız Erişim</div>
+<div class="text-xs opacity-75">(Accesso Illimitato)</div>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<!-- Alphabet Progress -->
+<div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6">
+<h3 class="text-xl font-bold mb-2 text-red-700">Alfabe İlerlemesi</h3>
+<p class="text-sm text-red-600 mb-4">(Progresso Alfabeto)</p>
+<div class="grid grid-cols-6 gap-2 mb-4">
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">A</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">B</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">C</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">Ç</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">D</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">E</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+</div>
+<div class="grid grid-cols-6 gap-2 mb-4">
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">F</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">G</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">Ğ</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">H</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">I</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+<div class="bg-red-100 border-2 border-red-400 rounded-lg p-2 text-center">
+<div class="text-lg font-bold">İ</div>
+<div class="text-xs text-red-700">✓</div>
+</div>
+</div>
+<p class="text-sm text-gray-600">29 harfin tamamı öğrenildi!</p>
+<p class="text-xs text-gray-500">(Tutte le 29 lettere imparate!)</p>
+</div>
+<!-- Vocabulary Progress -->
+<div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6">
+<h3 class="text-xl font-bold mb-2 text-pink-700">Kelime Dağarcığı</h3>
+<p class="text-sm text-pink-600 mb-4">(Vocabolario)</p>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-sm">Selamlaşma</span>
+<div class="flex items-center">
+<div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+<div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-xs text-green-600">15/15</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Sayılar</span>
+<div class="flex items-center">
+<div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+<div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-xs text-green-600">20/20</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Renkler</span>
+<div class="flex items-center">
+<div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+<div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-xs text-green-600">12/12</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Aile</span>
+<div class="flex items-center">
+<div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+<div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-xs text-green-600">18/18</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Yemekler</span>
+<div class="flex items-center">
+<div class="bg-green-200 rounded-full h-2 w-16 mr-2">
+<div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+</div>
+<span class="text-xs text-green-600">25/25</span>
+</div>
+</div>
+</div>
+<p class="text-sm text-gray-600 mt-4">Toplam: 150+ kelime öğrenildi!</p>
+<p class="text-xs text-gray-500">(Totale: 150+ parole imparate!)</p>
+</div>
+</div>
+<div class="mt-6 text-center">
+<div class="unlocked-badge rounded-full px-6 py-3 inline-block">
+<span class="font-bold text-lg">🎉 TÜM İÇERİK AÇIK! 🎉</span>
+<br/>
+<span class="text-sm">(Tutto il contenuto è sbloccato!)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
         // Navigation
         function showSection(sectionName) {
             // Hide all sections
@@ -928,14 +890,18 @@
             currentIndex: 0
         };
 
-        function startExercise(type) {
-            if (type === 'vocabulary') {
-                document.getElementById('exercises-section').scrollIntoView({behavior: 'smooth'});
-                document.getElementById('exercise-area').scrollIntoView({behavior: 'smooth'});
-            } else {
-                alert(`🎵 Telaffuz pratiği! Gerçek uygulamada mikrofon kullanarak Türkçe kelimelerin telaffuzunu pratik edebilirsiniz.`);
-            }
-        }
+        
+function startExercise(type) {
+    if (type === 'vocabulary') {
+        document.getElementById('exercises-section').scrollIntoView({behavior: 'smooth'});
+        document.getElementById('exercise-area').scrollIntoView({behavior: 'smooth'});
+        // avvia subito il primo esercizio
+        nextExercise();
+    } else {
+        alert(`🎵 Telaffuz pratiği! Gerçek uygulamada mikrofon kullanarak Türkçe kelimelerin telaffuzunu pratik edebilirsiniz.`);
+    }
+}
+
 
         function checkAnswer(answer) {
             const feedback = document.getElementById('exercise-feedback');
@@ -972,20 +938,50 @@
             });
         }
 
-        function nextExercise() {
-            currentExercise.currentIndex = (currentExercise.currentIndex + 1) % currentExercise.words.length;
-            const word = currentExercise.words[currentExercise.currentIndex];
-            
-            document.getElementById('exercise-word').textContent = word.turkish;
-            document.getElementById('exercise-pronunciation').textContent = word.pronunciation;
-            document.getElementById('exercise-feedback').classList.add('hidden');
-            
-            // Re-enable option buttons
-            document.querySelectorAll('.exercise-option').forEach(btn => {
-                btn.disabled = false;
-                btn.classList.remove('opacity-50');
-            });
-        }
+        
+function nextExercise() {
+    const words = currentExercise.words;
+    // se è la prima volta, non incrementare; altrimenti passa alla successiva
+    if (typeof nextExercise._init === 'undefined') {
+        nextExercise._init = true;
+    } else {
+        currentExercise.currentIndex = (currentExercise.currentIndex + 1) % words.length;
+    }
+    const word = words[currentExercise.currentIndex];
+    
+    // aggiorna parola e pronuncia
+    document.getElementById('exercise-word').textContent = word.turkish;
+    document.getElementById('exercise-pronunciation').textContent = word.pronunciation;
+    const feedback = document.getElementById('exercise-feedback');
+    feedback.classList.add('hidden');
+    feedback.innerHTML = "";
+    
+    // rigenera le opzioni
+    const optionsContainer = document.getElementById('exercise-options');
+    if (optionsContainer) {
+        optionsContainer.innerHTML = "";
+        
+        // prendo la risposta corretta + 3 casuali
+        let answers = [word.correct];
+        const allAnswers = Array.from(new Set(currentExercise.words.map(w => w.correct).concat(["arrivederci","prego"])));
+        let distractors = allAnswers.filter(a => a !== word.correct);
+        // mischiamo e prendiamo 3
+        distractors = distractors.sort(() => Math.random() - 0.5).slice(0,3);
+        answers = answers.concat(distractors);
+        
+        // mescola final
+        answers = answers.sort(() => Math.random() - 0.5);
+        
+        answers.forEach(ans => {
+            const btn = document.createElement('button');
+            btn.textContent = ans.charAt(0).toUpperCase() + ans.slice(1);
+            btn.onclick = () => checkAnswer(ans);
+            btn.className = "exercise-option bg-red-100 hover:bg-red-200 text-red-800 py-4 px-6 rounded-xl font-medium transition-all";
+            optionsContainer.appendChild(btn);
+        });
+    }
+}
+
 
         // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
